@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/matroskachapters" elementFormDefault="qualified" targetNamespace="http://tempuri.org/matroskachapters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Chapters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="EditionEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditionEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EditionUID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EditionFlagHidden" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EditionManaged" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="EditionFlagDefault" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ChapterAtom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditionUID" type="xs:string" />
+  <xs:element name="EditionFlagHidden" type="xs:string" />
+  <xs:element name="EditionManaged" type="xs:string" />
+  <xs:element name="EditionFlagDefault" type="xs:string" />
+  <xs:element name="ChapterAtom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChapterTimeStart" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterTimeEnd" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterUID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterSegmentUID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterSegmentEditionUID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterPhysicalEquiv" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterTrack" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterFlagHidden" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterFlagEnabled" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="ChapterDisplay" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ChapterProcess" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ChapterAtom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChapterTrack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChapterTrackNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChapterDisplay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChapterString" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="ChapterLanguage" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ChapterCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChapterProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChapterProcessCodecID" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ChapterProcessPrivate" />
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="ChapterProcessCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChapterProcessCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChapterProcessTime" />
+        <xs:element ref="ChapterProcessData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChapterTimeStart" type="xs:string" />
+  <xs:element name="ChapterTimeEnd" type="xs:string" />
+  <xs:element name="ChapterFlagHidden" type="xs:string" />
+  <xs:element name="ChapterFlagEnabled" type="xs:string" />
+  <xs:element name="ChapterUID" type="xs:string" />
+  <xs:element name="ChapterSegmentUID" type="xs:string" />
+  <xs:element name="ChapterSegmentEditionUID" type="xs:string" />
+  <xs:element name="ChapterPhysicalEquiv" type="xs:string" />
+  <xs:element name="ChapterProcessCodecID" type="xs:string" />
+  <xs:element name="ChapterProcessPrivate" type="xs:string" />
+  <xs:element name="ChapterProcessTime" type="xs:string" />
+  <xs:element name="ChapterProcessData" type="xs:string" />
+  <xs:element name="ChapterString" type="xs:string" />
+  <xs:element name="ChapterLanguage" type="xs:string" />
+  <xs:element name="ChapterCountry" type="xs:string" />
+  <xs:element name="ChapterTrackNumber" type="xs:string" />
+</xs:schema>
