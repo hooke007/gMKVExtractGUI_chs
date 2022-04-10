@@ -206,12 +206,12 @@ namespace gMKVToolNix
 
         protected void ShowErrorMessage(String argMessage)
         {
-            MessageBox.Show("An error has occured!" + Environment.NewLine + Environment.NewLine + argMessage, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("发生了错误！" + Environment.NewLine + Environment.NewLine + argMessage, "错误！", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         protected void ShowSuccessMessage(String argMessage)
         {
-            MessageBox.Show(argMessage, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(argMessage, "成功！", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         protected DialogResult ShowQuestion(String argQuestion, String argTitle, bool argShowCancel = true)

@@ -20,9 +20,9 @@ namespace gMKVToolNix.Forms
         private ContextMenuStrip _ChapterContextMenu = null;
         private ContextMenuStrip _AttachmentContextMenu = null;
 
-        private readonly static string INFO_TEXT = "Here you can specify the output filename format for each kind of track." + Environment.NewLine +
-            "Pressing the \"Add...\" button you will see the list with the available placeholders and select them." + Environment.NewLine +
-            "Pressing the \"Default\" button you will reset the output filename format to its default value.";
+        private readonly static string INFO_TEXT = "在这里你可以为每一种轨道指定输出文件名的格式。" + Environment.NewLine +
+            "按下 \"添加 ...\" 按钮，你将看到可用占位符的列表以选择。" + Environment.NewLine +
+            "按下 \"重置\" 按钮，将重设输出文件名的格式为它的默认值。";
 
         public frmOptions()
         {
@@ -31,7 +31,7 @@ namespace gMKVToolNix.Forms
                 InitializeComponent();
 
                 Icon = Icon.ExtractAssociatedIcon(GetExecutingAssemblyLocation());
-                Text = String.Format("gMKVExtractGUI v{0} -- Options", GetCurrentVersion());
+                Text = String.Format("gMKVExtractGUI_chs v{0} -- 选项", GetCurrentVersion());
 
                 // Set the info text
                 txtInfo.Text = INFO_TEXT;

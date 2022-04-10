@@ -40,7 +40,7 @@ namespace gMKVToolNix
                 _MainForm = argMainForm;
 
                 Icon = Icon.ExtractAssociatedIcon(GetExecutingAssemblyLocation());
-                Text = String.Format("gMKVExtractGUI v{0} -- Job Manager", GetCurrentVersion());
+                Text = String.Format("gMKVExtractGUI_chs v{0} -- 任务管理器", GetCurrentVersion());
 
                 _FromConstructor = true;
 
@@ -249,7 +249,7 @@ namespace gMKVToolNix
             {
                 if (GetNumberOfJobs(JobState.Ready) == 0)
                 {
-                    throw new Exception("There are no available jobs to run!");
+                    throw new Exception("无可用的任务以运行！");
                 }
                 List<gMKVJobInfo> jobList = new List<gMKVJobInfo>();
                 foreach (DataGridViewRow item in grdJobs.Rows)
@@ -328,7 +328,7 @@ namespace gMKVToolNix
                 {
                     lblCurrentProgressValue.Text = "";
                     lblTotalProgressValue.Text = "";
-                    txtCurrentTrack.Text = "Extraction completed!";
+                    txtCurrentTrack.Text = "导出完成！";
                 }
                 gTaskbarProgress.SetState(this, gTaskbarProgress.TaskbarStates.NoProgress);
                 gTaskbarProgress.SetOverlayIcon(this, null, null);
@@ -418,7 +418,7 @@ namespace gMKVToolNix
             {
                 // ask for path
                 SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Select job file...";
+                sfd.Title = "选择任务文件 ...";
                 sfd.InitialDirectory = GetCurrentDirectory();
                 sfd.Filter = "*.xml|*.xml";
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -539,7 +539,7 @@ namespace gMKVToolNix
         {
             try
             {
-                grpJobs.Text = String.Format("Jobs ({0})", grdJobs.Rows.Count);
+                grpJobs.Text = String.Format("任务 ({0})", grdJobs.Rows.Count);
             }
             catch (Exception ex)
             {

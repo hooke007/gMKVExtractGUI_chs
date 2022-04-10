@@ -85,11 +85,11 @@ namespace gMKVToolNix
         {
             if (string.IsNullOrWhiteSpace(mkvToonlixPath))
             {
-                throw new Exception("The MKVToolNix path was not provided!");
+                throw new Exception("未提供 MKVToolNix 路径！");
             }
             if(!Directory.Exists(mkvToonlixPath))
             {
-                throw new Exception(string.Format("The MKVToolNix path {0} does not exist!", mkvToonlixPath));
+                throw new Exception(string.Format("MKVToolNix 路径 {0} 不存在！", mkvToonlixPath));
             }
             _MKVToolnixPath = mkvToonlixPath;
             _MKVMergeFilename = Path.Combine(_MKVToolnixPath, MKV_MERGE_FILENAME);

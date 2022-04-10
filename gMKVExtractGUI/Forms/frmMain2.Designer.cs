@@ -188,7 +188,7 @@ namespace gMKVToolNix.Forms
             this.grpActions.Size = new System.Drawing.Size(618, 54);
             this.grpActions.TabIndex = 8;
             this.grpActions.TabStop = false;
-            this.grpActions.Text = "Actions";
+            this.grpActions.Text = "操作";
             // 
             // btnAddJobs
             // 
@@ -197,7 +197,7 @@ namespace gMKVToolNix.Forms
             this.btnAddJobs.Name = "btnAddJobs";
             this.btnAddJobs.Size = new System.Drawing.Size(70, 30);
             this.btnAddJobs.TabIndex = 14;
-            this.btnAddJobs.Text = "Add Jobs";
+            this.btnAddJobs.Text = "添加任务";
             this.btnAddJobs.UseVisualStyleBackColor = true;
             this.btnAddJobs.Click += new System.EventHandler(this.btnExtract_btnAddJobs_Click);
             // 
@@ -207,7 +207,7 @@ namespace gMKVToolNix.Forms
             this.btnShowJobs.Name = "btnShowJobs";
             this.btnShowJobs.Size = new System.Drawing.Size(60, 30);
             this.btnShowJobs.TabIndex = 13;
-            this.btnShowJobs.Text = "Jobs...";
+            this.btnShowJobs.Text = "任务 ...";
             this.btnShowJobs.UseVisualStyleBackColor = true;
             this.btnShowJobs.Click += new System.EventHandler(this.btnShowJobs_Click);
             // 
@@ -218,7 +218,7 @@ namespace gMKVToolNix.Forms
             this.chkShowPopup.Name = "chkShowPopup";
             this.chkShowPopup.Size = new System.Drawing.Size(61, 19);
             this.chkShowPopup.TabIndex = 12;
-            this.chkShowPopup.Text = "Popup";
+            this.chkShowPopup.Text = "弹出";
             this.chkShowPopup.UseVisualStyleBackColor = true;
             this.chkShowPopup.CheckedChanged += new System.EventHandler(this.chkShowPopup_CheckedChanged);
             // 
@@ -229,7 +229,7 @@ namespace gMKVToolNix.Forms
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Size = new System.Drawing.Size(70, 30);
             this.btnExtract.TabIndex = 10;
-            this.btnExtract.Text = "Extract";
+            this.btnExtract.Text = "导出";
             this.btnExtract.UseVisualStyleBackColor = true;
             this.btnExtract.Click += new System.EventHandler(this.btnExtract_btnAddJobs_Click);
             // 
@@ -241,7 +241,7 @@ namespace gMKVToolNix.Forms
             this.lblExtractionMode.Name = "lblExtractionMode";
             this.lblExtractionMode.Size = new System.Drawing.Size(42, 15);
             this.lblExtractionMode.TabIndex = 9;
-            this.lblExtractionMode.Text = "Extract";
+            this.lblExtractionMode.Text = "导出";
             // 
             // cmbExtractionMode
             // 
@@ -260,7 +260,7 @@ namespace gMKVToolNix.Forms
             this.btnShowLog.Name = "btnShowLog";
             this.btnShowLog.Size = new System.Drawing.Size(60, 30);
             this.btnShowLog.TabIndex = 6;
-            this.btnShowLog.Text = "Log...";
+            this.btnShowLog.Text = "日志 ...";
             this.btnShowLog.UseVisualStyleBackColor = true;
             this.btnShowLog.Click += new System.EventHandler(this.btnShowLog_Click);
             // 
@@ -272,7 +272,7 @@ namespace gMKVToolNix.Forms
             this.lblChapterType.Name = "lblChapterType";
             this.lblChapterType.Size = new System.Drawing.Size(49, 15);
             this.lblChapterType.TabIndex = 3;
-            this.lblChapterType.Text = "Chapter";
+            this.lblChapterType.Text = "章节";
             // 
             // cmbChapterType
             // 
@@ -297,7 +297,7 @@ namespace gMKVToolNix.Forms
             this.grpOutputDirectory.Size = new System.Drawing.Size(618, 54);
             this.grpOutputDirectory.TabIndex = 7;
             this.grpOutputDirectory.TabStop = false;
-            this.grpOutputDirectory.Text = "Output Directory for Selected File (you can drag and drop the directory)";
+            this.grpOutputDirectory.Text = "已选文件的输出目录（允许拖拽目录）";
             // 
             // chkUseSourceDirectory
             // 
@@ -308,7 +308,7 @@ namespace gMKVToolNix.Forms
             this.chkUseSourceDirectory.Name = "chkUseSourceDirectory";
             this.chkUseSourceDirectory.Size = new System.Drawing.Size(84, 19);
             this.chkUseSourceDirectory.TabIndex = 4;
-            this.chkUseSourceDirectory.Text = "Use Source";
+            this.chkUseSourceDirectory.Text = "同源";
             this.chkUseSourceDirectory.UseVisualStyleBackColor = true;
             this.chkUseSourceDirectory.CheckedChanged += new System.EventHandler(this.chkUseSourceDirectory_CheckedChanged);
             // 
@@ -319,7 +319,7 @@ namespace gMKVToolNix.Forms
             this.btnBrowseOutputDirectory.Name = "btnBrowseOutputDirectory";
             this.btnBrowseOutputDirectory.Size = new System.Drawing.Size(80, 30);
             this.btnBrowseOutputDirectory.TabIndex = 3;
-            this.btnBrowseOutputDirectory.Text = "Browse...";
+            this.btnBrowseOutputDirectory.Text = "浏览 ...";
             this.btnBrowseOutputDirectory.UseVisualStyleBackColor = true;
             this.btnBrowseOutputDirectory.Click += new System.EventHandler(this.btnBrowseOutputDirectory_Click);
             // 
@@ -352,7 +352,7 @@ namespace gMKVToolNix.Forms
             // 
             this.setAsDefaultDirectoryToolStripMenuItem.Name = "setAsDefaultDirectoryToolStripMenuItem";
             this.setAsDefaultDirectoryToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.setAsDefaultDirectoryToolStripMenuItem.Text = "Set As Default Directory";
+            this.setAsDefaultDirectoryToolStripMenuItem.Text = "设未默认目录";
             this.setAsDefaultDirectoryToolStripMenuItem.Click += new System.EventHandler(this.setAsDefaultDirectoryToolStripMenuItem_Click);
             // 
             // useCurrentlySetDefaultDirectoryToolStripMenuItem
@@ -360,7 +360,7 @@ namespace gMKVToolNix.Forms
             this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Enabled = false;
             this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Name = "useCurrentlySetDefaultDirectoryToolStripMenuItem";
             this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = "Use Currently Set Default Directory:";
+            this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = "使用当前设定的默认目录：";
             this.useCurrentlySetDefaultDirectoryToolStripMenuItem.Click += new System.EventHandler(this.useCurrentlySetDefaultDirectoryToolStripMenuItem_Click);
             // 
             // grpConfig
@@ -373,7 +373,7 @@ namespace gMKVToolNix.Forms
             this.grpConfig.Size = new System.Drawing.Size(618, 54);
             this.grpConfig.TabIndex = 0;
             this.grpConfig.TabStop = false;
-            this.grpConfig.Text = "MKVToolnix Directory (you can drag and drop the directory)";
+            this.grpConfig.Text = "MKVToolnix 路径（允许拖拽目录）";
             // 
             // txtMKVToolnixPath
             // 
@@ -398,7 +398,7 @@ namespace gMKVToolNix.Forms
             this.btnBrowseMKVToolnixPath.Name = "btnBrowseMKVToolnixPath";
             this.btnBrowseMKVToolnixPath.Size = new System.Drawing.Size(80, 30);
             this.btnBrowseMKVToolnixPath.TabIndex = 6;
-            this.btnBrowseMKVToolnixPath.Text = "Browse...";
+            this.btnBrowseMKVToolnixPath.Text = "浏览 ...";
             this.btnBrowseMKVToolnixPath.UseVisualStyleBackColor = true;
             this.btnBrowseMKVToolnixPath.Click += new System.EventHandler(this.btnBrowseMKVToolnixPath_Click);
             // 
@@ -411,7 +411,7 @@ namespace gMKVToolNix.Forms
             this.grpInputFiles.Size = new System.Drawing.Size(618, 239);
             this.grpInputFiles.TabIndex = 1;
             this.grpInputFiles.TabStop = false;
-            this.grpInputFiles.Text = "Input Files (you can drag and drop files or directories)";
+            this.grpInputFiles.Text = "输入文件（允许拖拽文件或目录）";
             // 
             // trvInputFiles
             // 
@@ -467,7 +467,7 @@ namespace gMKVToolNix.Forms
             // 
             this.addInputFileToolStripMenuItem.Name = "addInputFileToolStripMenuItem";
             this.addInputFileToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.addInputFileToolStripMenuItem.Text = "Add Input File(s)...";
+            this.addInputFileToolStripMenuItem.Text = "添加输入文件（多选） ...";
             this.addInputFileToolStripMenuItem.Click += new System.EventHandler(this.addInputFileToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
@@ -479,7 +479,7 @@ namespace gMKVToolNix.Forms
             // 
             this.checkTracksToolStripMenuItem.Name = "checkTracksToolStripMenuItem";
             this.checkTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkTracksToolStripMenuItem.Text = "Check All Tracks";
+            this.checkTracksToolStripMenuItem.Text = "勾选全部轨道";
             this.checkTracksToolStripMenuItem.Click += new System.EventHandler(this.checkTracksToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -493,7 +493,7 @@ namespace gMKVToolNix.Forms
             this.allVideoTracksToolStripMenuItem});
             this.checkVideoTracksToolStripMenuItem.Name = "checkVideoTracksToolStripMenuItem";
             this.checkVideoTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkVideoTracksToolStripMenuItem.Text = "Check Video Tracks...";
+            this.checkVideoTracksToolStripMenuItem.Text = "勾选视频轨道 ...";
             // 
             // allVideoTracksToolStripMenuItem
             // 
@@ -508,7 +508,7 @@ namespace gMKVToolNix.Forms
             this.allAudioTracksToolStripMenuItem});
             this.checkAudioTracksToolStripMenuItem.Name = "checkAudioTracksToolStripMenuItem";
             this.checkAudioTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkAudioTracksToolStripMenuItem.Text = "Check Audio Tracks...";
+            this.checkAudioTracksToolStripMenuItem.Text = "勾选音频轨道 ...";
             // 
             // allAudioTracksToolStripMenuItem
             // 
@@ -523,7 +523,7 @@ namespace gMKVToolNix.Forms
             this.allSubtitleTracksToolStripMenuItem});
             this.checkSubtitleTracksToolStripMenuItem.Name = "checkSubtitleTracksToolStripMenuItem";
             this.checkSubtitleTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkSubtitleTracksToolStripMenuItem.Text = "Check Subtitle Tracks...";
+            this.checkSubtitleTracksToolStripMenuItem.Text = "勾选字幕轨道 ...";
             // 
             // allSubtitleTracksToolStripMenuItem
             // 
@@ -538,7 +538,7 @@ namespace gMKVToolNix.Forms
             this.allChapterTracksToolStripMenuItem});
             this.checkChapterTracksToolStripMenuItem.Name = "checkChapterTracksToolStripMenuItem";
             this.checkChapterTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkChapterTracksToolStripMenuItem.Text = "Check Chapter Tracks...";
+            this.checkChapterTracksToolStripMenuItem.Text = "勾选章节轨道 ...";
             // 
             // allChapterTracksToolStripMenuItem
             // 
@@ -553,7 +553,7 @@ namespace gMKVToolNix.Forms
             this.allAttachmentTracksToolStripMenuItem});
             this.checkAttachmentTracksToolStripMenuItem.Name = "checkAttachmentTracksToolStripMenuItem";
             this.checkAttachmentTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.checkAttachmentTracksToolStripMenuItem.Text = "Check Attachment Tracks...";
+            this.checkAttachmentTracksToolStripMenuItem.Text = "勾选附件轨道 ...";
             // 
             // allAttachmentTracksToolStripMenuItem
             // 
@@ -571,7 +571,7 @@ namespace gMKVToolNix.Forms
             // 
             this.uncheckTracksToolStripMenuItem.Name = "uncheckTracksToolStripMenuItem";
             this.uncheckTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckTracksToolStripMenuItem.Text = "Uncheck All Tracks";
+            this.uncheckTracksToolStripMenuItem.Text = "禁选全部轨道";
             this.uncheckTracksToolStripMenuItem.Click += new System.EventHandler(this.uncheckTracksToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -585,7 +585,7 @@ namespace gMKVToolNix.Forms
             this.allVideoTracksToolStripMenuItem1});
             this.uncheckVideoTracksToolStripMenuItem.Name = "uncheckVideoTracksToolStripMenuItem";
             this.uncheckVideoTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckVideoTracksToolStripMenuItem.Text = "Uncheck Video Tracks...";
+            this.uncheckVideoTracksToolStripMenuItem.Text = "禁选视频轨道 ...";
             // 
             // allVideoTracksToolStripMenuItem1
             // 
@@ -600,7 +600,7 @@ namespace gMKVToolNix.Forms
             this.allAudioTracksToolStripMenuItem1});
             this.uncheckAudioTracksToolStripMenuItem.Name = "uncheckAudioTracksToolStripMenuItem";
             this.uncheckAudioTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckAudioTracksToolStripMenuItem.Text = "Uncheck Audio Tracks...";
+            this.uncheckAudioTracksToolStripMenuItem.Text = "禁选音频轨道 ...";
             // 
             // allAudioTracksToolStripMenuItem1
             // 
@@ -615,7 +615,7 @@ namespace gMKVToolNix.Forms
             this.allSubtitleTracksToolStripMenuItem1});
             this.uncheckSubtitleTracksToolStripMenuItem.Name = "uncheckSubtitleTracksToolStripMenuItem";
             this.uncheckSubtitleTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckSubtitleTracksToolStripMenuItem.Text = "Uncheck Subtitle Tracks...";
+            this.uncheckSubtitleTracksToolStripMenuItem.Text = "禁选字幕轨道 ...";
             // 
             // allSubtitleTracksToolStripMenuItem1
             // 
@@ -630,7 +630,7 @@ namespace gMKVToolNix.Forms
             this.allChapterTracksToolStripMenuItem1});
             this.uncheckChapterTracksToolStripMenuItem.Name = "uncheckChapterTracksToolStripMenuItem";
             this.uncheckChapterTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckChapterTracksToolStripMenuItem.Text = "Uncheck Chapter Tracks...";
+            this.uncheckChapterTracksToolStripMenuItem.Text = "禁选章节轨道 ...";
             // 
             // allChapterTracksToolStripMenuItem1
             // 
@@ -645,7 +645,7 @@ namespace gMKVToolNix.Forms
             this.allAttachmentTracksToolStripMenuItem1});
             this.uncheckAttachmentTracksToolStripMenuItem.Name = "uncheckAttachmentTracksToolStripMenuItem";
             this.uncheckAttachmentTracksToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.uncheckAttachmentTracksToolStripMenuItem.Text = "Uncheck Attachment Tracks...";
+            this.uncheckAttachmentTracksToolStripMenuItem.Text = "禁选附件轨道 ...";
             // 
             // allAttachmentTracksToolStripMenuItem1
             // 
@@ -663,28 +663,28 @@ namespace gMKVToolNix.Forms
             // 
             this.removeAllInputFilesToolStripMenuItem.Name = "removeAllInputFilesToolStripMenuItem";
             this.removeAllInputFilesToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.removeAllInputFilesToolStripMenuItem.Text = "Remove All Input Files";
+            this.removeAllInputFilesToolStripMenuItem.Text = "移除全部输入文件";
             this.removeAllInputFilesToolStripMenuItem.Click += new System.EventHandler(this.removeAllInputFilesToolStripMenuItem_Click);
             // 
             // removeSelectedInputFileToolStripMenuItem
             // 
             this.removeSelectedInputFileToolStripMenuItem.Name = "removeSelectedInputFileToolStripMenuItem";
             this.removeSelectedInputFileToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.removeSelectedInputFileToolStripMenuItem.Text = "Remove Selected Input File";
+            this.removeSelectedInputFileToolStripMenuItem.Text = "移除已选的输入文件";
             this.removeSelectedInputFileToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedInputFileToolStripMenuItem_Click);
             // 
             // openSelectedFileToolStripMenuItem
             // 
             this.openSelectedFileToolStripMenuItem.Name = "openSelectedFileToolStripMenuItem";
             this.openSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.openSelectedFileToolStripMenuItem.Text = "Open Selected File...";
+            this.openSelectedFileToolStripMenuItem.Text = "打开已选的文件 ...";
             this.openSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.openSelectedFileToolStripMenuItem_Click);
             // 
             // openSelectedFileFolderToolStripMenuItem
             // 
             this.openSelectedFileFolderToolStripMenuItem.Name = "openSelectedFileFolderToolStripMenuItem";
             this.openSelectedFileFolderToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.openSelectedFileFolderToolStripMenuItem.Text = "Open Selected File Folder...";
+            this.openSelectedFileFolderToolStripMenuItem.Text = "打开已选文件的文件夹 ...";
             this.openSelectedFileFolderToolStripMenuItem.Click += new System.EventHandler(this.openSelectedFileFolderToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -696,14 +696,14 @@ namespace gMKVToolNix.Forms
             // 
             this.expandAllToolStripMenuItem.Name = "expandAllToolStripMenuItem";
             this.expandAllToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.expandAllToolStripMenuItem.Text = "Expand All";
+            this.expandAllToolStripMenuItem.Text = "全部展开";
             this.expandAllToolStripMenuItem.Click += new System.EventHandler(this.expandAllToolStripMenuItem_Click);
             // 
             // collapseAllToolStripMenuItem
             // 
             this.collapseAllToolStripMenuItem.Name = "collapseAllToolStripMenuItem";
             this.collapseAllToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.collapseAllToolStripMenuItem.Text = "Collapse All";
+            this.collapseAllToolStripMenuItem.Text = "全部折叠";
             this.collapseAllToolStripMenuItem.Click += new System.EventHandler(this.collapseAllToolStripMenuItem_Click);
             // 
             // grpSelectedFileInfo
@@ -716,7 +716,7 @@ namespace gMKVToolNix.Forms
             this.grpSelectedFileInfo.Size = new System.Drawing.Size(618, 94);
             this.grpSelectedFileInfo.TabIndex = 6;
             this.grpSelectedFileInfo.TabStop = false;
-            this.grpSelectedFileInfo.Text = "Selected File Information";
+            this.grpSelectedFileInfo.Text = "已选文件的信息";
             this.grpSelectedFileInfo.DragDrop += new System.Windows.Forms.DragEventHandler(this.trvInputFiles_DragDrop);
             this.grpSelectedFileInfo.DragEnter += new System.Windows.Forms.DragEventHandler(this.trvInputFiles_DragEnter);
             // 
@@ -740,7 +740,7 @@ namespace gMKVToolNix.Forms
             this.btnAbort.Name = "btnAbort";
             this.btnAbort.Size = new System.Drawing.Size(80, 30);
             this.btnAbort.TabIndex = 12;
-            this.btnAbort.Text = "Abort";
+            this.btnAbort.Text = "中止";
             this.btnAbort.UseVisualStyleBackColor = true;
             this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
             // 
@@ -751,7 +751,7 @@ namespace gMKVToolNix.Forms
             this.btnAbortAll.Name = "btnAbortAll";
             this.btnAbortAll.Size = new System.Drawing.Size(80, 30);
             this.btnAbortAll.TabIndex = 13;
-            this.btnAbortAll.Text = "Abort All";
+            this.btnAbortAll.Text = "中止全部";
             this.btnAbortAll.UseVisualStyleBackColor = true;
             this.btnAbortAll.Click += new System.EventHandler(this.btnAbortAll_Click);
             // 
@@ -762,7 +762,7 @@ namespace gMKVToolNix.Forms
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(80, 30);
             this.btnOptions.TabIndex = 14;
-            this.btnOptions.Text = "Options...";
+            this.btnOptions.Text = "选项 ...";
             this.btnOptions.UseVisualStyleBackColor = true;
             this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
             // 
@@ -779,7 +779,7 @@ namespace gMKVToolNix.Forms
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "frmMain2";
-            this.Text = "gMKVExtractGUI";
+            this.Text = "gMKVExtractGUI_chs";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Shown += new System.EventHandler(this.frmMain2_Shown);
             this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);

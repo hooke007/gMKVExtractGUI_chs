@@ -101,7 +101,7 @@
             this.grpChapters.Size = new System.Drawing.Size(619, 54);
             this.grpChapters.TabIndex = 0;
             this.grpChapters.TabStop = false;
-            this.grpChapters.Text = "Chapters";
+            this.grpChapters.Text = "章节";
             // 
             // btnDefaultChapterPlaceholder
             // 
@@ -110,7 +110,7 @@
             this.btnDefaultChapterPlaceholder.Name = "btnDefaultChapterPlaceholder";
             this.btnDefaultChapterPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnDefaultChapterPlaceholder.TabIndex = 5;
-            this.btnDefaultChapterPlaceholder.Text = "Default";
+            this.btnDefaultChapterPlaceholder.Text = "重置";
             this.btnDefaultChapterPlaceholder.UseVisualStyleBackColor = true;
             this.btnDefaultChapterPlaceholder.Click += new System.EventHandler(this.btnDefaultChapterPlaceholder_Click);
             // 
@@ -121,7 +121,7 @@
             this.btnAddChapterPlaceholder.Name = "btnAddChapterPlaceholder";
             this.btnAddChapterPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnAddChapterPlaceholder.TabIndex = 4;
-            this.btnAddChapterPlaceholder.Text = "Add...";
+            this.btnAddChapterPlaceholder.Text = "添加 ...";
             this.btnAddChapterPlaceholder.UseVisualStyleBackColor = true;
             this.btnAddChapterPlaceholder.Click += new System.EventHandler(this.btnAddChapterPlaceholder_Click);
             // 
@@ -153,7 +153,7 @@
             this.btnDefaults.Name = "btnDefaults";
             this.btnDefaults.Size = new System.Drawing.Size(83, 30);
             this.btnDefaults.TabIndex = 6;
-            this.btnDefaults.Text = "Defaults";
+            this.btnDefaults.Text = "重置全部";
             this.btnDefaults.UseVisualStyleBackColor = true;
             this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
             // 
@@ -164,7 +164,7 @@
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(80, 30);
             this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
+            this.btnOK.Text = "确认";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -176,7 +176,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 30);
             this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -191,7 +191,7 @@
             this.grpVideoTracks.Size = new System.Drawing.Size(619, 54);
             this.grpVideoTracks.TabIndex = 1;
             this.grpVideoTracks.TabStop = false;
-            this.grpVideoTracks.Text = "Video Tracks";
+            this.grpVideoTracks.Text = "视频轨道";
             // 
             // btnDefaultVideoTrackPlaceholder
             // 
@@ -200,7 +200,7 @@
             this.btnDefaultVideoTrackPlaceholder.Name = "btnDefaultVideoTrackPlaceholder";
             this.btnDefaultVideoTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnDefaultVideoTrackPlaceholder.TabIndex = 2;
-            this.btnDefaultVideoTrackPlaceholder.Text = "Default";
+            this.btnDefaultVideoTrackPlaceholder.Text = "重置";
             this.btnDefaultVideoTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnDefaultVideoTrackPlaceholder.Click += new System.EventHandler(this.btnDefaultVideoTrackPlaceholder_Click);
             // 
@@ -211,7 +211,7 @@
             this.btnAddVideoTrackPlaceholder.Name = "btnAddVideoTrackPlaceholder";
             this.btnAddVideoTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnAddVideoTrackPlaceholder.TabIndex = 1;
-            this.btnAddVideoTrackPlaceholder.Text = "Add...";
+            this.btnAddVideoTrackPlaceholder.Text = "添加 ...";
             this.btnAddVideoTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnAddVideoTrackPlaceholder.Click += new System.EventHandler(this.btnAddVideoTrackPlaceholder_Click);
             // 
@@ -236,7 +236,7 @@
             this.grpAudioTracks.Size = new System.Drawing.Size(619, 54);
             this.grpAudioTracks.TabIndex = 2;
             this.grpAudioTracks.TabStop = false;
-            this.grpAudioTracks.Text = "Audio Tracks";
+            this.grpAudioTracks.Text = "音频轨道";
             // 
             // btnDefaultAudioTrackPlaceholder
             // 
@@ -245,7 +245,7 @@
             this.btnDefaultAudioTrackPlaceholder.Name = "btnDefaultAudioTrackPlaceholder";
             this.btnDefaultAudioTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnDefaultAudioTrackPlaceholder.TabIndex = 3;
-            this.btnDefaultAudioTrackPlaceholder.Text = "Default";
+            this.btnDefaultAudioTrackPlaceholder.Text = "重置";
             this.btnDefaultAudioTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnDefaultAudioTrackPlaceholder.Click += new System.EventHandler(this.btnDefaultAudioTrackPlaceholder_Click);
             // 
@@ -256,7 +256,7 @@
             this.btnAddAudioTrackPlaceholder.Name = "btnAddAudioTrackPlaceholder";
             this.btnAddAudioTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnAddAudioTrackPlaceholder.TabIndex = 2;
-            this.btnAddAudioTrackPlaceholder.Text = "Add...";
+            this.btnAddAudioTrackPlaceholder.Text = "添加 ...";
             this.btnAddAudioTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnAddAudioTrackPlaceholder.Click += new System.EventHandler(this.btnAddAudioTrackPlaceholder_Click);
             // 
@@ -281,7 +281,7 @@
             this.grpSubtitleTracks.Size = new System.Drawing.Size(619, 54);
             this.grpSubtitleTracks.TabIndex = 3;
             this.grpSubtitleTracks.TabStop = false;
-            this.grpSubtitleTracks.Text = "Subtitle Tracks";
+            this.grpSubtitleTracks.Text = "字幕轨道";
             // 
             // btnDefaultSubtitleTrackPlaceholder
             // 
@@ -290,7 +290,7 @@
             this.btnDefaultSubtitleTrackPlaceholder.Name = "btnDefaultSubtitleTrackPlaceholder";
             this.btnDefaultSubtitleTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnDefaultSubtitleTrackPlaceholder.TabIndex = 4;
-            this.btnDefaultSubtitleTrackPlaceholder.Text = "Default";
+            this.btnDefaultSubtitleTrackPlaceholder.Text = "重置";
             this.btnDefaultSubtitleTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnDefaultSubtitleTrackPlaceholder.Click += new System.EventHandler(this.btnDefaultSubtitleTrackPlaceholder_Click);
             // 
@@ -301,7 +301,7 @@
             this.btnAddSubtitleTrackPlaceholder.Name = "btnAddSubtitleTrackPlaceholder";
             this.btnAddSubtitleTrackPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnAddSubtitleTrackPlaceholder.TabIndex = 3;
-            this.btnAddSubtitleTrackPlaceholder.Text = "Add...";
+            this.btnAddSubtitleTrackPlaceholder.Text = "添加 ...";
             this.btnAddSubtitleTrackPlaceholder.UseVisualStyleBackColor = true;
             this.btnAddSubtitleTrackPlaceholder.Click += new System.EventHandler(this.btnAddSubtitleTrackPlaceholder_Click);
             // 
@@ -326,7 +326,7 @@
             this.grpAttachments.Size = new System.Drawing.Size(619, 54);
             this.grpAttachments.TabIndex = 4;
             this.grpAttachments.TabStop = false;
-            this.grpAttachments.Text = "Attachments";
+            this.grpAttachments.Text = "附件";
             // 
             // btnDefaultAttachmentPlaceholder
             // 
@@ -335,7 +335,7 @@
             this.btnDefaultAttachmentPlaceholder.Name = "btnDefaultAttachmentPlaceholder";
             this.btnDefaultAttachmentPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnDefaultAttachmentPlaceholder.TabIndex = 6;
-            this.btnDefaultAttachmentPlaceholder.Text = "Default";
+            this.btnDefaultAttachmentPlaceholder.Text = "重置";
             this.btnDefaultAttachmentPlaceholder.UseVisualStyleBackColor = true;
             this.btnDefaultAttachmentPlaceholder.Click += new System.EventHandler(this.btnDefaultAttachmentPlaceholder_Click);
             // 
@@ -346,7 +346,7 @@
             this.btnAddAttachmentPlaceholder.Name = "btnAddAttachmentPlaceholder";
             this.btnAddAttachmentPlaceholder.Size = new System.Drawing.Size(83, 30);
             this.btnAddAttachmentPlaceholder.TabIndex = 5;
-            this.btnAddAttachmentPlaceholder.Text = "Add...";
+            this.btnAddAttachmentPlaceholder.Text = "添加 ...";
             this.btnAddAttachmentPlaceholder.UseVisualStyleBackColor = true;
             this.btnAddAttachmentPlaceholder.Click += new System.EventHandler(this.btnAddAttachmentPlaceholder_Click);
             // 
@@ -369,7 +369,7 @@
             this.grpInfo.Size = new System.Drawing.Size(619, 145);
             this.grpInfo.TabIndex = 5;
             this.grpInfo.TabStop = false;
-            this.grpInfo.Text = "Information";
+            this.grpInfo.Text = "信息";
             // 
             // txtInfo
             // 
@@ -388,10 +388,10 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(654, 481);
             this.Controls.Add(this.tlpMain);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.Name = "frmOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Options";
+            this.Text = "选项";
             this.Load += new System.EventHandler(this.frmOptions_Load);
             this.tlpMain.ResumeLayout(false);
             this.grpChapters.ResumeLayout(false);

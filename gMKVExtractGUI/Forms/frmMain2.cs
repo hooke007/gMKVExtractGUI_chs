@@ -62,7 +62,7 @@ namespace gMKVToolNix.Forms
                 Icon = Icon.ExtractAssociatedIcon(this.GetExecutingAssemblyLocation());
 
                 // Set form title 
-                Text = String.Format("gMKVExtractGUI v{0} -- By Gpower2", this.GetCurrentVersion());
+                Text = String.Format("gMKVExtractGUI_chs v{0}", this.GetCurrentVersion());
 
                 btnAbort.Enabled = false;
                 btnAbortAll.Enabled = false;
@@ -123,14 +123,14 @@ namespace gMKVToolNix.Forms
                     if (String.IsNullOrWhiteSpace(manualPath))
                     {
                         manualPathOK = false;
-                        gMKVLogger.Log(String.Format("The manual path for MKVToolNix was empty!"));
+                        gMKVLogger.Log(String.Format("手动指定的 MKVToolNix 为空！"));
                     }
                     else
                     {
                         if (!Directory.Exists(manualPath))
                         {
                             manualPathOK = false;
-                            gMKVLogger.Log(String.Format("The manual path for MKVToolNix does not exist!"));
+                            gMKVLogger.Log(String.Format("手动指定的 MKVToolNix 路径不存在！"));
                         }
                         else
                         {
@@ -139,7 +139,7 @@ namespace gMKVToolNix.Forms
                             )
                             {
                                 manualPathOK = false;
-                                gMKVLogger.Log(String.Format("mkvmerge was not found in manual path!"));
+                                gMKVLogger.Log(String.Format("手动指定的路径中未找到 mkvmerge ！"));
                             }
                             else
                             {
@@ -151,7 +151,7 @@ namespace gMKVToolNix.Forms
 
                 if (manualMkvToolNixPath && !manualPathOK)
                 {
-                    gMKVLogger.Log(String.Format("Failed to set manual path! Trying to auto-detect..."));
+                    gMKVLogger.Log(String.Format("手动指定路径失败！尝试自动检测 ..."));
                 }
 
                 if (!manualMkvToolNixPath || (manualMkvToolNixPath && !manualPathOK))
@@ -175,7 +175,7 @@ namespace gMKVToolNix.Forms
                             }
                             else
                             {
-                                throw new Exception(String.Format("mkvmerge was not found in path {0}!", Path.Combine("usr", "bin")));
+                                throw new Exception(String.Format("路径中未找到 mkvmerge {0}！", Path.Combine("usr", "bin")));
                             }
                         }
                     }
@@ -206,14 +206,14 @@ namespace gMKVToolNix.Forms
                                 String exceptionMessage = "";
                                 if (gMKVHelper.IsOnLinux)
                                 {
-                                    exceptionMessage = "Could not find MKVToolNix in /usr/bin, or in the current directory, or in the ini file!";
+                                    exceptionMessage = "无法在 /usr/bin ，当前目录，或ini文件中找到 MKVToolNix ！";
                                 }
                                 else
                                 {
-                                    exceptionMessage = "Could not find MKVToolNix in registry, or in the current directory, or in the ini file!";
+                                    exceptionMessage = "无法在注册表，当前目录，或ini文件中找到 MKVToolNix ！";
                                 }
                                 gMKVLogger.Log(exceptionMessage);
-                                throw new Exception(exceptionMessage + Environment.NewLine + "Please download and reinstall or provide a manual path!");
+                                throw new Exception(exceptionMessage + Environment.NewLine + "请下载并重新安装或提供一个手动指定的路径！");
                             }
                         }
                     }
@@ -238,7 +238,7 @@ namespace gMKVToolNix.Forms
                 {
                     tlpMain.Enabled = false;
                     Cursor = Cursors.WaitCursor;
-                    txtSegmentInfo.Text = "Getting files...";
+                    txtSegmentInfo.Text = "获取文件中 ...";
 
                     // Get the file list
                     List<string> fileList = GetFilesFromInputFileDrop(_CmdArguments.Where(c => !c.StartsWith("--")).ToArray());
@@ -246,7 +246,7 @@ namespace gMKVToolNix.Forms
                     // Check if any valid matroska files were provided
                     if (!fileList.Any())
                     {
-                        throw new Exception("No valid matroska files were provided!");
+                        throw new Exception("提供的 Matroska 文件无效！");
                     }
 
                     // Add files to the TreeView
@@ -295,7 +295,7 @@ namespace gMKVToolNix.Forms
                         // check if MKVToolnix Path is already set
                         if (!String.IsNullOrWhiteSpace(txtMKVToolnixPath.Text))
                         {
-                            if (ShowQuestion("Do you really want to change MKVToolnix path?", "Are you sure?", false) != DialogResult.Yes)
+                            if (ShowQuestion("是否更改 MKVToolnix 路径？", "是否确定？", false) != DialogResult.Yes)
                             {
                                 return;
                             }
@@ -383,7 +383,7 @@ namespace gMKVToolNix.Forms
                 if (subDirList.Any())
                 {
                     Cursor = Cursors.Default;
-                    var result = ShowQuestion("Do you want to include files in sub directories?", "Sub directories found!");
+                    var result = ShowQuestion("是否包括子目录中的文件？", "子目录已发现！");
                     Cursor = Cursors.WaitCursor;
                     if (result == DialogResult.Yes)
                     {
@@ -455,7 +455,7 @@ namespace gMKVToolNix.Forms
                     {
                         tlpMain.Enabled = false;
                         Cursor = Cursors.WaitCursor;
-                        txtSegmentInfo.Text = "Getting files...";
+                        txtSegmentInfo.Text = "获取文件中 ...";
 
                         // Get the file list
                         List<string> fileList = GetFilesFromInputFileDrop(s);
@@ -463,7 +463,7 @@ namespace gMKVToolNix.Forms
                         // Check if any valid matroska files were provided
                         if (!fileList.Any())
                         {
-                            throw new Exception("No valid matroska files were provided!");
+                            throw new Exception("提供的 Matroska 文件无效！");
                         }
 
                         // Add files to the TreeView
@@ -540,7 +540,7 @@ namespace gMKVToolNix.Forms
                     // Check if there are any new files to add
                     if (!argFiles.Any())
                     {
-                        throw new Exception("No new files to add!");
+                        throw new Exception("未添加新文件！");
                     }
                 }
 
@@ -581,7 +581,7 @@ namespace gMKVToolNix.Forms
                 prgBrStatus.Value = 0;
                 lblStatus.Text = "";
 
-                grpInputFiles.Text = String.Format("Input Files (you can drag and drop files or directories) ({0} files)",
+                grpInputFiles.Text = String.Format("输入文件（允许拖拽文件或目录） ({0} 个文件)",
                     trvInputFiles.AllNodes.Count(n => n != null && n.Tag != null && n.Tag is gMKVSegmentInfo));
 
                 tlpMain.Enabled = true;
@@ -604,7 +604,7 @@ namespace gMKVToolNix.Forms
             {
                 counter++;
                 txtSegmentInfo.Invoke((MethodInvoker) delegate {
-                    txtSegmentInfo.Text = String.Format("Analyzing {0}...", Path.GetFileName(sf));
+                    txtSegmentInfo.Text = String.Format("分析中 {0}...", Path.GetFileName(sf));
                 });
 
                 statusStrip.Invoke((MethodInvoker)delegate {
@@ -619,7 +619,7 @@ namespace gMKVToolNix.Forms
                 }
                 catch (Exception ex)
                 {
-                    results.ErrorMessages.Add(String.Format("file: {0} error: {1}", Path.GetFileName(sf), ex.Message));
+                    results.ErrorMessages.Add(String.Format("文件： {0} 错误： {1}", Path.GetFileName(sf), ex.Message));
                 }
             }
 
@@ -636,19 +636,19 @@ namespace gMKVToolNix.Forms
             // Check if MKVToolNix path was provided
             if (String.IsNullOrWhiteSpace(argMKVToolNixPath))
             {
-                throw new Exception("The MKVToolNix path was not provided!");
+                throw new Exception("未提供 MKVToolNix 路径！");
             }
 
             // Check if filename was provided
             if (String.IsNullOrWhiteSpace(argFilename))
             {
-                throw new Exception("No filename was provided!");
+                throw new Exception("未提供文件名！");
             }
 
             // Check if file exists
             if (!File.Exists(argFilename))
             {
-                throw new Exception(String.Format("The file {0} does not exist!", argFilename));
+                throw new Exception(String.Format("文件 {0} 不存在！", argFilename));
             }
 
             // Check if the extension is a valid matroska file
@@ -659,7 +659,7 @@ namespace gMKVToolNix.Forms
                 && inputExtension != ".mk3d"
                 && inputExtension != ".webm")
             {
-                throw new Exception("The input file " + argFilename + Environment.NewLine + Environment.NewLine + "is not a valid matroska file!");
+                throw new Exception("输入文件 " + argFilename + Environment.NewLine + Environment.NewLine + "不是有效的 Matroska 文件！");
             }
 
             // get the file information                    
@@ -688,7 +688,7 @@ namespace gMKVToolNix.Forms
                     TreeNode selNode = trvInputFiles.SelectedNode;
                     if(selNode.Tag == null)
                     {
-                        throw new Exception("Selected node has null tag!");
+                        throw new Exception("选择的节点有空标签！");
                     }
                     if(!(selNode.Tag is gMKVSegmentInfo))
                     {
@@ -696,19 +696,19 @@ namespace gMKVToolNix.Forms
                         selNode = selNode.Parent;
                         if(selNode == null)
                         {
-                            throw new Exception("Selected node has no parent node!");
+                            throw new Exception("选择的节点无父节点！");
                         }
                         if (selNode.Tag == null)
                         {
-                            throw new Exception("Selected node has null tag!");
+                            throw new Exception("选择的节点有空标签！");
                         }
                         if (!(selNode.Tag is gMKVSegmentInfo))
                         {
-                            throw new Exception("Selected node has no info!");
+                            throw new Exception("选择的节点无信息！");
                         }
                     }
                     gMKVSegmentInfo seg = selNode.Tag as gMKVSegmentInfo;
-                    txtSegmentInfo.Text = String.Format("Writing Application: {1}{0}Muxing Application: {2}{0}Duration: {3}{0}Date: {4}",
+                    txtSegmentInfo.Text = String.Format("写入应用： {1}{0}混流应用： {2}{0}持续时间： {3}{0}日期： {4}",
                         Environment.NewLine,
                         seg.WritingApplication,
                         seg.MuxingApplication,
@@ -723,12 +723,12 @@ namespace gMKVToolNix.Forms
                     }
 
                     // Set the GroupBox title
-                    grpSelectedFileInfo.Text = String.Format("Selected File Information ({0})", seg.Filename);
+                    grpSelectedFileInfo.Text = String.Format("已选文件的信息 ({0})", seg.Filename);
                 }
                 else
                 {
                     txtSegmentInfo.Clear();
-                    grpSelectedFileInfo.Text = "Selected File Information";
+                    grpSelectedFileInfo.Text = "已选文件的信息";
                 }
             }
             catch (Exception ex)
@@ -761,7 +761,7 @@ namespace gMKVToolNix.Forms
 
         public void UpdateTrackLabel(Object filename, Object val)
         {
-            txtSegmentInfo.Text = String.Format("Extracting {0} from {1}...", val, Path.GetFileName((string)filename));
+            txtSegmentInfo.Text = String.Format("导出中 {0} 从 {1}...", val, Path.GetFileName((string)filename));
             Application.DoEvents();
         }
 
@@ -769,23 +769,23 @@ namespace gMKVToolNix.Forms
         {
             if (String.IsNullOrWhiteSpace(txtMKVToolnixPath.Text))
             {
-                throw new Exception("You must provide with MKVToolnix path!");
+                throw new Exception("你必须提供 MKVToolnix 路径！");
             }
             if (!File.Exists(Path.Combine(txtMKVToolnixPath.Text.Trim(), gMKVHelper.MKV_MERGE_GUI_FILENAME))
                 && !File.Exists(Path.Combine(txtMKVToolnixPath.Text.Trim(), gMKVHelper.MKV_MERGE_NEW_GUI_FILENAME)))
             {
-                throw new Exception("The MKVToolnix path provided does not contain MKVToolnix files!");
+                throw new Exception("提供的 MKVToolnix 路径内不包含 MKVToolnix 文件！");
             }
             if(!chkUseSourceDirectory.Checked && string.IsNullOrWhiteSpace(txtOutputDirectory.Text))
             {
-                throw new Exception("You haven't specified an output directory!");
+                throw new Exception("你尚未指定一个输出目录！");
             }
             if (!chkUseSourceDirectory.Checked && !Directory.Exists(txtOutputDirectory.Text.Trim()))
             {
                 // Ask the user to create the non existing output directory
-                if (ShowQuestion(String.Format("The output directory \"{0}\" does not exist!{1}{1}Do you want to create it?", txtOutputDirectory.Text.Trim(), Environment.NewLine), "Output directory does not exist!", false) != DialogResult.Yes)
+                if (ShowQuestion(String.Format("输出路径 \"{0}\" 不存在！{1}{1}是否创建它？", txtOutputDirectory.Text.Trim(), Environment.NewLine), "输出路径不存在！", false) != DialogResult.Yes)
                 {
-                    throw new Exception(String.Format("The output directory \"{0}\" does not exist!{1}{1}Extraction was cancelled!", txtOutputDirectory.Text.Trim(), Environment.NewLine));
+                    throw new Exception(String.Format("输出路径 \"{0}\" 不存在！{1}{1}导出已取消！", txtOutputDirectory.Text.Trim(), Environment.NewLine));
                 }
                 else
                 {
@@ -806,11 +806,11 @@ namespace gMKVToolNix.Forms
                 {
                     if (selectedExtractionMode == FormMkvExtractionMode.Cue_Sheet || selectedExtractionMode == FormMkvExtractionMode.Tags)
                     {
-                        throw new Exception(string.Format("You must select a file's track in order to extract {0}!", (String)cmbExtractionMode.SelectedItem));
+                        throw new Exception(string.Format("你必须选择一个文件的轨道以导出 {0}！", (String)cmbExtractionMode.SelectedItem));
                     }
                     else
                     {
-                        throw new Exception("You must select a track to extract!");
+                        throw new Exception("你必须选择一个轨道以导出！");
                     }
                 }
 
@@ -821,7 +821,7 @@ namespace gMKVToolNix.Forms
                     // Check if the ckecked nodes contain video, audio or subtitle track
                     if (!checkedNodes.Any(t => t.Tag != null && (t.Tag is gMKVTrack)))
                     {
-                        throw new Exception("You must select a video, audio or subtitles track to extract timecodes!");
+                        throw new Exception("你必须选择一个视频，音频或字幕轨道以导出时间码！");
                     }
                 }
 
@@ -832,7 +832,7 @@ namespace gMKVToolNix.Forms
                     // Check if the ckecked nodes contain video, audio or subtitle track
                     if (!checkedNodes.Any(t => t.Tag != null && (t.Tag is gMKVTrack)))
                     {
-                        throw new Exception("You must select a video, audio or subtitles track to extract cues!");
+                        throw new Exception("你必须选择一个视频，音频或字幕轨道以导出辅助文件！");
                     }
                 }
             }
@@ -843,7 +843,7 @@ namespace gMKVToolNix.Forms
                 {
                     if (cmbChapterType.SelectedIndex == -1)
                     {
-                        throw new Exception("You must select a chapter type!");
+                        throw new Exception("你必须选择一个章节类型！");
                     }
                 }
             }
@@ -1045,7 +1045,7 @@ namespace gMKVToolNix.Forms
                         btnAbortAll.Enabled = true;
                         btnOptions.Enabled = false;
                         gTaskbarProgress.SetState(this, gTaskbarProgress.TaskbarStates.Normal);
-                        gTaskbarProgress.SetOverlayIcon(this, SystemIcons.Shield, "Extracting...");
+                        gTaskbarProgress.SetOverlayIcon(this, SystemIcons.Shield, "导出中 ...");
                         Application.DoEvents();
                         while (myThread.ThreadState != System.Threading.ThreadState.Stopped)
                         {
@@ -1060,7 +1060,7 @@ namespace gMKVToolNix.Forms
                     }
                     if (chkShowPopup.Checked)
                     {
-                        ShowSuccessMessage("The extraction was completed successfully!");
+                        ShowSuccessMessage("导出已成功！");
                     }
                     else
                     {
@@ -1074,7 +1074,7 @@ namespace gMKVToolNix.Forms
                 gMKVLogger.Log(ex.ToString());
 
                 gTaskbarProgress.SetState(this, gTaskbarProgress.TaskbarStates.Error);
-                gTaskbarProgress.SetOverlayIcon(this, SystemIcons.Error, "Error!");
+                gTaskbarProgress.SetOverlayIcon(this, SystemIcons.Error, "错误！");
                 exceptionOccured = true;
                 ShowErrorMessage(ex.Message);
             }
@@ -1093,12 +1093,12 @@ namespace gMKVToolNix.Forms
                 {
                     if (sender == btnExtract)
                     {
-                        lblStatus.Text = "Extraction completed!";
+                        lblStatus.Text = "导出完成！";
                     }
                 }
                 trvInputFiles.SelectedNode = null;
                 txtSegmentInfo.Clear();
-                grpSelectedFileInfo.Text = "Selected File Information";
+                grpSelectedFileInfo.Text = "已选文件的信息";
 
                 _ExtractRunning = false;
                 tlpMain.Enabled = true;
@@ -1120,8 +1120,8 @@ namespace gMKVToolNix.Forms
                 txtOutputDirectory.Clear();
             }
 
-            grpInputFiles.Text = "Input Files (you can drag and drop files or directories)";
-            grpSelectedFileInfo.Text = "Selected File Information";
+            grpInputFiles.Text = "输入文件（允许拖拽文件或目录）";
+            grpSelectedFileInfo.Text = "已选文件的信息";
 
             txtSegmentInfo.Clear();
             ClearStatus();
@@ -1149,7 +1149,7 @@ namespace gMKVToolNix.Forms
                         _FromConstructor = true;
                         txtMKVToolnixPath.Text = "";
                         _FromConstructor = false;
-                        throw new Exception("The folder does not contain MKVToolnix!");
+                        throw new Exception("该文件夹内不包含 MKVToolnix！");
                     }
 
                     // Write the value to the ini file
@@ -1241,8 +1241,8 @@ namespace gMKVToolNix.Forms
                     sfd.CheckFileExists = false;
                     sfd.CheckPathExists = false;
                     sfd.OverwritePrompt = false;
-                    sfd.FileName = "Select directory";
-                    sfd.Title = "Select output directory...";
+                    sfd.FileName = "选择路径";
+                    sfd.Title = "选择输出路径 ...";
                     if ((sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK))
                     {
                         txtOutputDirectory.Text = Path.GetDirectoryName(sfd.FileName);
@@ -1264,7 +1264,7 @@ namespace gMKVToolNix.Forms
                 // check if MKVToolnix Path is already set
                 if (!String.IsNullOrWhiteSpace(txtMKVToolnixPath.Text))
                 {
-                    if (ShowQuestion("Do you really want to change MKVToolnix path?", "Are you sure?", false) != DialogResult.Yes)
+                    if (ShowQuestion("是否更改 MKVToolnix 路径？", "是否确定？", false) != DialogResult.Yes)
                     {
                         return;
                     }
@@ -1274,8 +1274,8 @@ namespace gMKVToolNix.Forms
                 ofd.RestoreDirectory = true;
                 ofd.CheckFileExists = false;
                 ofd.CheckPathExists = false;
-                ofd.FileName = "Select directory";
-                ofd.Title = "Select MKVToolnix directory...";
+                ofd.FileName = "选择路径";
+                ofd.Title = "选择 MKVToolnix 路径 ...";
                 if (!String.IsNullOrWhiteSpace(txtMKVToolnixPath.Text))
                 {
                     if (Directory.Exists(txtMKVToolnixPath.Text.Trim()))
@@ -1501,13 +1501,13 @@ namespace gMKVToolNix.Forms
             openSelectedFileFolderToolStripMenuItem.Enabled = (trvInputFiles.SelectedNode != null && trvInputFiles.SelectedNode.Tag != null);
             openSelectedFileToolStripMenuItem.Enabled = (trvInputFiles.SelectedNode != null && trvInputFiles.SelectedNode.Tag != null);
 
-            checkTracksToolStripMenuItem.Text = string.Format("Check All Tracks ({0}/{1})", checkedAllTracksCount, allTracksCount);
+            checkTracksToolStripMenuItem.Text = string.Format("勾选全部轨道 ({0}/{1})", checkedAllTracksCount, allTracksCount);
 
-            checkVideoTracksToolStripMenuItem.Text = string.Format("Check Video Tracks... ({0}/{1})", checkedVideoTracksCount, videoTracksCount);
-            checkAudioTracksToolStripMenuItem.Text = string.Format("Check Audio Tracks... ({0}/{1})", checkedAudioTracksCount, audioTracksCount);
-            checkSubtitleTracksToolStripMenuItem.Text = string.Format("Check Subtitle Tracks... ({0}/{1})", checkedSubtitleTracksCount, subtitleTracksCount);
-            checkChapterTracksToolStripMenuItem.Text = string.Format("Check Chapter Tracks... ({0}/{1})", checkedChapterTracksCount, chapterTracksCount);
-            checkAttachmentTracksToolStripMenuItem.Text = string.Format("Check Attachment Tracks... ({0}/{1})", checkedAttachmentTracksCount, attachmentTracksCount);
+            checkVideoTracksToolStripMenuItem.Text = string.Format("勾选视频轨道 ... ({0}/{1})", checkedVideoTracksCount, videoTracksCount);
+            checkAudioTracksToolStripMenuItem.Text = string.Format("勾选音频轨道 ... ({0}/{1})", checkedAudioTracksCount, audioTracksCount);
+            checkSubtitleTracksToolStripMenuItem.Text = string.Format("勾选字幕轨道 ... ({0}/{1})", checkedSubtitleTracksCount, subtitleTracksCount);
+            checkChapterTracksToolStripMenuItem.Text = string.Format("勾选章节轨道 ... ({0}/{1})", checkedChapterTracksCount, chapterTracksCount);
+            checkAttachmentTracksToolStripMenuItem.Text = string.Format("勾选附件轨道 ... ({0}/{1})", checkedAttachmentTracksCount, attachmentTracksCount);
 
             allVideoTracksToolStripMenuItem.Text = string.Format("All Video Tracks ({0}/{1})", checkedVideoTracksCount, videoTracksCount);
             allAudioTracksToolStripMenuItem.Text = string.Format("All Audio Tracks ({0}/{1})", checkedAudioTracksCount, audioTracksCount);
@@ -1515,13 +1515,13 @@ namespace gMKVToolNix.Forms
             allChapterTracksToolStripMenuItem.Text = string.Format("All Chapter Tracks ({0}/{1})", checkedChapterTracksCount, chapterTracksCount);
             allAttachmentTracksToolStripMenuItem.Text = string.Format("All Attachment Tracks ({0}/{1})", checkedAttachmentTracksCount, attachmentTracksCount);
 
-            uncheckTracksToolStripMenuItem.Text = string.Format("Uncheck All Tracks ({0}/{1})", (allTracksCount - checkedAllTracksCount), allTracksCount);
+            uncheckTracksToolStripMenuItem.Text = string.Format("禁选全部轨道 ({0}/{1})", (allTracksCount - checkedAllTracksCount), allTracksCount);
 
-            uncheckVideoTracksToolStripMenuItem.Text = string.Format("Uncheck Video Tracks... ({0}/{1})", videoTracksCount - checkedVideoTracksCount, videoTracksCount);
-            uncheckAudioTracksToolStripMenuItem.Text = string.Format("Uncheck Audio Tracks... ({0}/{1})", audioTracksCount - checkedAudioTracksCount, audioTracksCount);
-            uncheckSubtitleTracksToolStripMenuItem.Text = string.Format("Uncheck Subtitle Tracks... ({0}/{1})", subtitleTracksCount - checkedSubtitleTracksCount, subtitleTracksCount);
-            uncheckChapterTracksToolStripMenuItem.Text = string.Format("Uncheck Chapter Tracks... ({0}/{1})", chapterTracksCount - checkedChapterTracksCount, chapterTracksCount);
-            uncheckAttachmentTracksToolStripMenuItem.Text = string.Format("Uncheck Attachment Tracks... ({0}/{1})", attachmentTracksCount - checkedAttachmentTracksCount, attachmentTracksCount);
+            uncheckVideoTracksToolStripMenuItem.Text = string.Format("禁选视频轨道 ... ({0}/{1})", videoTracksCount - checkedVideoTracksCount, videoTracksCount);
+            uncheckAudioTracksToolStripMenuItem.Text = string.Format("禁选音频轨道 ... ({0}/{1})", audioTracksCount - checkedAudioTracksCount, audioTracksCount);
+            uncheckSubtitleTracksToolStripMenuItem.Text = string.Format("禁选字幕轨道 ... ({0}/{1})", subtitleTracksCount - checkedSubtitleTracksCount, subtitleTracksCount);
+            uncheckChapterTracksToolStripMenuItem.Text = string.Format("禁选章节轨道 ... ({0}/{1})", chapterTracksCount - checkedChapterTracksCount, chapterTracksCount);
+            uncheckAttachmentTracksToolStripMenuItem.Text = string.Format("禁选附件轨道 ... ({0}/{1})", attachmentTracksCount - checkedAttachmentTracksCount, attachmentTracksCount);
 
             allVideoTracksToolStripMenuItem1.Text = string.Format("All Video Tracks ({0}/{1})", videoTracksCount - checkedVideoTracksCount, videoTracksCount);
             allAudioTracksToolStripMenuItem1.Text = string.Format("All Audio Tracks ({0}/{1})", audioTracksCount - checkedAudioTracksCount, audioTracksCount);
@@ -1529,9 +1529,9 @@ namespace gMKVToolNix.Forms
             allChapterTracksToolStripMenuItem1.Text = string.Format("All Chapter Tracks ({0}/{1})", chapterTracksCount - checkedChapterTracksCount, chapterTracksCount);
             allAttachmentTracksToolStripMenuItem1.Text = string.Format("All Attachment Tracks ({0}/{1})", attachmentTracksCount - checkedAttachmentTracksCount, attachmentTracksCount);
 
-            removeAllInputFilesToolStripMenuItem.Text = string.Format("Remove All Input Files ({0})", allInputFilesCount);
+            removeAllInputFilesToolStripMenuItem.Text = string.Format("移除全部输入文件 ({0})", allInputFilesCount);
 
-            removeSelectedInputFileToolStripMenuItem.Text = "Remove Selected Input File";
+            removeSelectedInputFileToolStripMenuItem.Text = "移除已选的输入文件";
 
             checkVideoTracksToolStripMenuItem.DropDownItems.Clear();
             checkVideoTracksToolStripMenuItem.DropDownItems.Add(allVideoTracksToolStripMenuItem);
@@ -2145,7 +2145,7 @@ namespace gMKVToolNix.Forms
             trvInputFiles.Nodes.Remove(node);
             if(trvInputFiles.Nodes.Count > 0)
             {
-                grpInputFiles.Text = String.Format("Input Files (you can drag and drop files or directories) ({0} files)",
+                grpInputFiles.Text = String.Format("输入文件（允许拖拽文件或目录） ({0} 个文件)",
                 trvInputFiles.AllNodes.Count(n => n != null && n.Tag != null && n.Tag is gMKVSegmentInfo));
             }
             else
@@ -2221,7 +2221,7 @@ namespace gMKVToolNix.Forms
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Title = "Select an input matroska file...";
+                ofd.Title = "选择一个输入的 Matroska 文件 ...";
                 ofd.Filter = "Matroska files (*.mkv;*.mka;*.mks;*.mk3d;*.webm)|*.mkv;*.mka;*.mks;*.mk3d;*.webm|Matroska video files (*.mkv)|*.mkv|Matroska audio files (*.mka)|*.mka|Matroska subtitle files (*.mks)|*.mks|Matroska 3D files (*.mk3d)|*.mk3d|Webm files (*.webm)|*.webm";
                 ofd.Multiselect = true;
                 ofd.AutoUpgradeEnabled = true;
@@ -2272,12 +2272,12 @@ namespace gMKVToolNix.Forms
                     // Check if we can use the default directory
                     useCurrentlySetDefaultDirectoryToolStripMenuItem.Enabled = !chkUseSourceDirectory.Checked;
                     // Set the text
-                    useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = String.Format("Use Currently Set Default Directory: ({0})", _Settings.DefaultOutputDirectory);
+                    useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = String.Format("使用当前设定的默认目录： ({0})", _Settings.DefaultOutputDirectory);
                 }
                 else
                 {
                     useCurrentlySetDefaultDirectoryToolStripMenuItem.Enabled = false;
-                    useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = "Use Currently Set Default Directory: (Not Set!)";
+                    useCurrentlySetDefaultDirectoryToolStripMenuItem.Text = "使用当前设定的默认目录：（尚未设置！）";
                 }
             }
             catch (Exception ex)

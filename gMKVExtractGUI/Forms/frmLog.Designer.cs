@@ -96,7 +96,7 @@
             this.grpActions.Size = new System.Drawing.Size(598, 54);
             this.grpActions.TabIndex = 1;
             this.grpActions.TabStop = false;
-            this.grpActions.Text = "Actions";
+            this.grpActions.Text = "操作";
             // 
             // btnSave
             // 
@@ -104,7 +104,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 30);
             this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save...";
+            this.btnSave.Text = "保存 ...";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -114,7 +114,7 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(95, 30);
             this.btnClear.TabIndex = 3;
-            this.btnClear.Text = "Clear Log";
+            this.btnClear.Text = "清空日志";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -125,7 +125,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(95, 30);
             this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "刷新";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -136,7 +136,7 @@
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(95, 30);
             this.btnCopy.TabIndex = 1;
-            this.btnCopy.Text = "Copy Selection";
+            this.btnCopy.Text = "复制已选";
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
@@ -147,7 +147,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(95, 30);
             this.btnClose.TabIndex = 0;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "关闭";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -157,7 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(604, 501);
             this.Controls.Add(this.tlpMain);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinimumSize = new System.Drawing.Size(350, 350);
             this.Name = "frmLog";
             this.Text = "frmLog";

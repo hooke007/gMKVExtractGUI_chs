@@ -181,7 +181,7 @@ namespace gMKVToolNix
             this.btnAbort.Name = "btnAbort";
             this.btnAbort.Size = new System.Drawing.Size(92, 30);
             this.btnAbort.TabIndex = 10;
-            this.btnAbort.Text = "Abort";
+            this.btnAbort.Text = "中止";
             this.btnAbort.UseVisualStyleBackColor = true;
             this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
             // 
@@ -192,7 +192,7 @@ namespace gMKVToolNix
             this.btnAbortAll.Name = "btnAbortAll";
             this.btnAbortAll.Size = new System.Drawing.Size(92, 30);
             this.btnAbortAll.TabIndex = 11;
-            this.btnAbortAll.Text = "Abort All";
+            this.btnAbortAll.Text = "中止全部";
             this.btnAbortAll.UseVisualStyleBackColor = true;
             this.btnAbortAll.Click += new System.EventHandler(this.btnAbortAll_Click);
             // 
@@ -255,7 +255,7 @@ namespace gMKVToolNix
             this.btnBrowseInputFile.Name = "btnBrowseInputFile";
             this.btnBrowseInputFile.Size = new System.Drawing.Size(80, 30);
             this.btnBrowseInputFile.TabIndex = 2;
-            this.btnBrowseInputFile.Text = "Browse...";
+            this.btnBrowseInputFile.Text = "浏览 ...";
             this.btnBrowseInputFile.UseVisualStyleBackColor = true;
             this.btnBrowseInputFile.Click += new System.EventHandler(this.btnBrowseInputFile_Click);
             // 
@@ -292,7 +292,7 @@ namespace gMKVToolNix
             this.btnBrowseOutputDirectory.Name = "btnBrowseOutputDirectory";
             this.btnBrowseOutputDirectory.Size = new System.Drawing.Size(80, 30);
             this.btnBrowseOutputDirectory.TabIndex = 3;
-            this.btnBrowseOutputDirectory.Text = "Browse...";
+            this.btnBrowseOutputDirectory.Text = "浏览 ...";
             this.btnBrowseOutputDirectory.UseVisualStyleBackColor = true;
             this.btnBrowseOutputDirectory.Click += new System.EventHandler(this.btnBrowseOutputDirectory_Click);
             // 
@@ -327,7 +327,7 @@ namespace gMKVToolNix
             this.grpActions.Size = new System.Drawing.Size(618, 54);
             this.grpActions.TabIndex = 6;
             this.grpActions.TabStop = false;
-            this.grpActions.Text = "Actions";
+            this.grpActions.Text = "操作";
             // 
             // chkShowPopup
             // 
@@ -337,7 +337,7 @@ namespace gMKVToolNix
             this.chkShowPopup.Name = "chkShowPopup";
             this.chkShowPopup.Size = new System.Drawing.Size(61, 19);
             this.chkShowPopup.TabIndex = 12;
-            this.chkShowPopup.Text = "Popup";
+            this.chkShowPopup.Text = "弹出";
             this.chkShowPopup.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.chkShowPopup.UseVisualStyleBackColor = true;
             this.chkShowPopup.CheckedChanged += new System.EventHandler(this.chkShowPopup_CheckedChanged);
@@ -362,7 +362,7 @@ namespace gMKVToolNix
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Size = new System.Drawing.Size(90, 30);
             this.btnExtract.TabIndex = 10;
-            this.btnExtract.Text = "Extract";
+            this.btnExtract.Text = "导出";
             this.btnExtract.UseVisualStyleBackColor = true;
             this.btnExtract.Click += new System.EventHandler(this.btnExtract_Click);
             // 
@@ -380,7 +380,7 @@ namespace gMKVToolNix
             // 
             this.cmbExtractionMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbExtractionMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbExtractionMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.cmbExtractionMode.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.cmbExtractionMode.FormattingEnabled = true;
             this.cmbExtractionMode.Location = new System.Drawing.Point(411, 22);
             this.cmbExtractionMode.Name = "cmbExtractionMode";
@@ -393,7 +393,7 @@ namespace gMKVToolNix
             this.btnShowLog.Name = "btnShowLog";
             this.btnShowLog.Size = new System.Drawing.Size(60, 30);
             this.btnShowLog.TabIndex = 6;
-            this.btnShowLog.Text = "Log...";
+            this.btnShowLog.Text = "日志 ...";
             this.btnShowLog.UseVisualStyleBackColor = true;
             this.btnShowLog.Click += new System.EventHandler(this.btnShowLog_Click);
             // 
@@ -405,13 +405,13 @@ namespace gMKVToolNix
             this.lblChapterType.Name = "lblChapterType";
             this.lblChapterType.Size = new System.Drawing.Size(49, 15);
             this.lblChapterType.TabIndex = 3;
-            this.lblChapterType.Text = "Chapter";
+            this.lblChapterType.Text = "章节";
             // 
             // cmbChapterType
             // 
             this.cmbChapterType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbChapterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChapterType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.cmbChapterType.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.cmbChapterType.FormattingEnabled = true;
             this.cmbChapterType.Location = new System.Drawing.Point(281, 22);
             this.cmbChapterType.Name = "cmbChapterType";
@@ -429,7 +429,7 @@ namespace gMKVToolNix
             this.grpConfig.Size = new System.Drawing.Size(618, 54);
             this.grpConfig.TabIndex = 7;
             this.grpConfig.TabStop = false;
-            this.grpConfig.Text = "MKVToolnix Directory (you can drag and drop the directory)";
+            this.grpConfig.Text = "MKVToolnix 路径（允许拖拽目录）";
             // 
             // btnBrowseMKVToolnixPath
             // 
@@ -438,7 +438,7 @@ namespace gMKVToolNix
             this.btnBrowseMKVToolnixPath.Name = "btnBrowseMKVToolnixPath";
             this.btnBrowseMKVToolnixPath.Size = new System.Drawing.Size(80, 30);
             this.btnBrowseMKVToolnixPath.TabIndex = 5;
-            this.btnBrowseMKVToolnixPath.Text = "Browse...";
+            this.btnBrowseMKVToolnixPath.Text = "浏览 ...";
             this.btnBrowseMKVToolnixPath.UseVisualStyleBackColor = true;
             this.btnBrowseMKVToolnixPath.Click += new System.EventHandler(this.btnBrowseMKVToolnixPath_Click);
             // 
@@ -468,7 +468,7 @@ namespace gMKVToolNix
             this.grpInputFileInfo.Size = new System.Drawing.Size(618, 279);
             this.grpInputFileInfo.TabIndex = 5;
             this.grpInputFileInfo.TabStop = false;
-            this.grpInputFileInfo.Text = "Input File Information";
+            this.grpInputFileInfo.Text = "输入文件信息";
             this.grpInputFileInfo.DragDrop += new System.Windows.Forms.DragEventHandler(this.grpInputFileInfo_DragDrop);
             this.grpInputFileInfo.DragEnter += new System.Windows.Forms.DragEventHandler(this.grpInputFile_DragEnter);
             // 
@@ -551,7 +551,7 @@ namespace gMKVToolNix
             this.grpLog.Size = new System.Drawing.Size(755, 106);
             this.grpLog.TabIndex = 8;
             this.grpLog.TabStop = false;
-            this.grpLog.Text = "Log";
+            this.grpLog.Text = "日志";
             // 
             // frmMain
             // 
@@ -560,10 +560,10 @@ namespace gMKVToolNix
             this.ClientSize = new System.Drawing.Size(624, 561);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.grpLog);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "frmMain";
-            this.Text = "gMKVExtractGUI";
+            this.Text = "gMKVExtractGUI_chs";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
             this.ClientSizeChanged += new System.EventHandler(this.frmMain_ClientSizeChanged);
