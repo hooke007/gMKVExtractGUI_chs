@@ -104,7 +104,7 @@ namespace gMKVToolNix
             {
                 return false;
             }
-            
+
             return
                 VideoTrackFilenamePattern.Equals(other.VideoTrackFilenamePattern, StringComparison.OrdinalIgnoreCase)
                 && AudioTrackFilenamePattern.Equals(other.AudioTrackFilenamePattern, StringComparison.OrdinalIgnoreCase)
@@ -152,7 +152,7 @@ namespace gMKVToolNix
             return
                 MKVFile.Equals(other.MKVFile, StringComparison.OrdinalIgnoreCase)
                 && Enumerable.SequenceEqual(
-                    MKVSegmentsToExtract.Select(t => t.GetHashCode()).OrderBy(t => t), 
+                    MKVSegmentsToExtract.Select(t => t.GetHashCode()).OrderBy(t => t),
                     other.MKVSegmentsToExtract.Select(t => t.GetHashCode()).OrderBy(t => t))
                 && OutputDirectory.Equals(other.OutputDirectory, StringComparison.OrdinalIgnoreCase)
                 && ChapterType == other.ChapterType
@@ -293,9 +293,9 @@ namespace gMKVToolNix
         {
             // create the new parameter list type
             List<TrackParameter> trackParameterList = new List<TrackParameter>();
-            
+
             // check the selected segment's type
-            if (argSeg is gMKVTrack)
+            if (argSeg is gMKVTrack track)
             {
                 // if we are in a mode that requires timecodes extraction, add the parameter for the track
                 if (argTimecodesExtractionMode != TimecodesExtractionMode.NoTimecodes)
@@ -305,7 +305,7 @@ namespace gMKVToolNix
                         GetMKVExtractVersion().FileMajorPart >= 17 ? MkvExtractModes.timestamps_v2 : MkvExtractModes.timecodes_v2,
                         "",
                         string.Format("{0}:\"{1}\"",
-                            ((gMKVTrack)argSeg).TrackID,
+                            track.TrackID,
                             GetOutputFilename(argSeg, argOutputDirectory, argMKVFile, argFilenamePatterns, MkvExtractModes.timestamps_v2)
                         ),
                         false,
@@ -320,7 +320,7 @@ namespace gMKVToolNix
                         MkvExtractModes.cues,
                         "",
                         string.Format("{0}:\"{1}\"",
-                            ((gMKVTrack)argSeg).TrackID,
+                            track.TrackID,
                             GetOutputFilename(argSeg, argOutputDirectory, argMKVFile, argFilenamePatterns, MkvExtractModes.cues)
                         ),
                         false,
@@ -337,7 +337,7 @@ namespace gMKVToolNix
                     argCueExtractionMode == CuesExtractionMode.OnlyCues)
                     )
                     || (argTimecodesExtractionMode == TimecodesExtractionMode.OnlyTimecodes &&
-                    argCueExtractionMode == CuesExtractionMode.OnlyCues)                    
+                    argCueExtractionMode == CuesExtractionMode.OnlyCues)
                     )
                 {
 
@@ -346,7 +346,7 @@ namespace gMKVToolNix
                         MkvExtractModes.tracks,
                         "",
                         string.Format("{0}:\"{1}\"",
-                            ((gMKVTrack)argSeg).TrackID,
+                            track.TrackID,
                             GetOutputFilename(argSeg, argOutputDirectory, argMKVFile, argFilenamePatterns, MkvExtractModes.tracks)
                         ),
                         false,
@@ -354,7 +354,7 @@ namespace gMKVToolNix
                     ));
                 }
             }
-            else if (argSeg is gMKVAttachment)
+            else if (argSeg is gMKVAttachment attachment)
             {
                 // check if the mode requires the extraction of the segment itself
                 if (
@@ -373,7 +373,7 @@ namespace gMKVToolNix
                         MkvExtractModes.attachments,
                         "",
                         string.Format("{0}:\"{1}\"",
-                            ((gMKVAttachment)argSeg).ID,
+                            attachment.ID,
                             GetOutputFilename(argSeg, argOutputDirectory, argMKVFile, argFilenamePatterns, MkvExtractModes.attachments)
                         ),
                         false,
@@ -452,7 +452,7 @@ namespace gMKVToolNix
                 {
                     Debug.WriteLine(ex);
                     _ErrorBuilder.AppendLine($"Segment: {seg}{Environment.NewLine}Exception: {ex.Message}{Environment.NewLine}");
-                }                
+                }
             }
 
             // Group the initial parameters, in order to batch extract the mkv segments
@@ -716,7 +716,7 @@ namespace gMKVToolNix
                );
             }
             catch (Exception ex)
-            {                
+            {
                 Debug.WriteLine(ex);
             }
             finally
@@ -815,8 +815,8 @@ namespace gMKVToolNix
             OnMkvExtractProgressUpdated(0);
 
             // check for existence of MKVExtract
-            if (!File.Exists(_MKVExtractFilename)) 
-            { 
+            if (!File.Exists(_MKVExtractFilename))
+            {
                 throw new Exception($"Could not find {MKV_EXTRACT_FILENAME}!{Environment.NewLine}{_MKVExtractFilename}");
             }
             DataReceivedEventHandler handler = null;
@@ -866,7 +866,7 @@ namespace gMKVToolNix
                 {
                     parameters = "--gui-mode";
                 }
-                else 
+                else
                 {
                     // Before MKVToolNix 9.7.0, the safest way to ensure English output on Linux is through the EnvironmentVariables
                     if (gMKVHelper.IsOnLinux)
@@ -908,9 +908,9 @@ namespace gMKVToolNix
                         argMKVFile,
                         argParameter.ExtractMode.ToString(),
                         options,
-                        string.IsNullOrWhiteSpace(argParameter.TrackOutput) 
-                        || argParameter.ExtractMode == MkvExtractModes.tracks 
-                        || argParameter.ExtractMode == MkvExtractModes.timecodes_v2 
+                        string.IsNullOrWhiteSpace(argParameter.TrackOutput)
+                        || argParameter.ExtractMode == MkvExtractModes.tracks
+                        || argParameter.ExtractMode == MkvExtractModes.timecodes_v2
                         || argParameter.ExtractMode == MkvExtractModes.timestamps_v2
                         || argParameter.ExtractMode == MkvExtractModes.cues
                         || argParameter.ExtractMode == MkvExtractModes.attachments ? argParameter.TrackOutput : string.Format("\"{0}\"", argParameter.TrackOutput)
@@ -926,7 +926,7 @@ namespace gMKVToolNix
                         options,
                         argParameter.TrackOutput
                     );
-                }                
+                }
 
                 myProcessInfo.UseShellExecute = false;
                 myProcessInfo.RedirectStandardOutput = true;
@@ -936,7 +936,7 @@ namespace gMKVToolNix
                 myProcessInfo.CreateNoWindow = true;
                 myProcessInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 myProcess.StartInfo = myProcessInfo;
-                
+
                 Debug.WriteLine(myProcessInfo.Arguments);
                 gMKVLogger.Log($"\"{_MKVExtractFilename}\" {myProcessInfo.Arguments}");
 
@@ -959,7 +959,7 @@ namespace gMKVToolNix
                 if (myProcess.ExitCode > 1)
                 {
                     // something went wrong!
-                    throw new Exception(string.Format("Mkvextract exited with error code {0}!" 
+                    throw new Exception(string.Format("Mkvextract exited with error code {0}!"
                         + Environment.NewLine + Environment.NewLine + "Errors reported:" + Environment.NewLine + "{1}",
                         myProcess.ExitCode, _ErrorBuilder.ToString()));
                 }
@@ -1095,7 +1095,7 @@ namespace gMKVToolNix
         void myProcess_OutputDataReceived_WriteToFile(object sender, DataReceivedEventArgs e)
         {
             // check for user abort
-            if (Abort) 
+            if (Abort)
             {
                 ((Process)sender).Kill();
                 Abort = false;
@@ -1158,7 +1158,7 @@ namespace gMKVToolNix
                 // check for progress
                 else if (e.Data.Contains("Progress:"))
                 {
-                    OnMkvExtractProgressUpdated(Convert.ToInt32(e.Data.Substring(e.Data.IndexOf(":") + 1, e.Data.IndexOf("%") - e.Data.IndexOf(":") - 1)));                    
+                    OnMkvExtractProgressUpdated(Convert.ToInt32(e.Data.Substring(e.Data.IndexOf(":") + 1, e.Data.IndexOf("%") - e.Data.IndexOf(":") - 1)));
                 }
                 else if (e.Data.Contains("#GUI#error"))
                 {
@@ -1220,7 +1220,7 @@ namespace gMKVToolNix
             _Version = version;
         }
 
-        public string ReplaceFilenamePlaceholders(gMKVSegment argSeg, string argMKVFile, string argFilenamePattern)
+        public static string ReplaceFilenamePlaceholders(gMKVSegment argSeg, string argMKVFile, string argFilenamePattern)
         {
             string mkvFilenameNoExt = Path.GetFileNameWithoutExtension(argMKVFile);
             string mkvFilename = Path.GetFileName(argMKVFile);
@@ -1238,14 +1238,14 @@ namespace gMKVToolNix
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackNumber_0, track.TrackNumber.ToString("0"));
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackNumber_00, track.TrackNumber.ToString("00"));
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackNumber_000, track.TrackNumber.ToString("000"));
-                
+
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackID, track.TrackID.ToString());
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackID_0, track.TrackID.ToString("0"));
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackID_00, track.TrackID.ToString("00"));
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackID_000, track.TrackID.ToString("000"));
 
-                finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackName , track.TrackName);
-                finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackLanguage , track.Language);
+                finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackName, track.TrackName);
+                finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackLanguage, track.Language);
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackLanguageIetf, track.LanguageIetf);
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackCodecID, track.CodecID);
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.TrackCodecPrivate, track.CodecPrivate);
@@ -1256,7 +1256,7 @@ namespace gMKVToolNix
                 if (track.TrackType == MkvTrackType.video)
                 {
                     finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.VideoPixelWidth, track.VideoPixelWidth.ToString());
-                    finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.VideoPixelHeight ,track.VideoPixelHeight.ToString());
+                    finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.VideoPixelHeight, track.VideoPixelHeight.ToString());
                 }
 
                 // Audio Track placeholders
@@ -1269,7 +1269,7 @@ namespace gMKVToolNix
 
             // Attachment placeholders
             else if (argSeg is gMKVAttachment attachment)
-            {               
+            {
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.AttachmentID, attachment.ID.ToString());
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.AttachmentID_0, attachment.ID.ToString("0"));
                 finalFilename = finalFilename.Replace(gMKVExtractFilenamePatterns.AttachmentID_00, attachment.ID.ToString("00"));
@@ -1284,12 +1284,12 @@ namespace gMKVToolNix
             if (finalFilename.AsEnumerable().Any(c => _invalidFilenameChars.Contains(c)))
             {
                 finalFilename = string.Join("_", finalFilename.Split(_invalidFilenameChars));
-            }            
+            }
 
             return finalFilename;
         }
 
-        public string GetOutputFilename(
+        public static string GetOutputFilename(
             gMKVSegment argSeg
             , string argOutputDirectory
             , string argMKVFile
@@ -1306,37 +1306,37 @@ namespace gMKVToolNix
             switch (argMkvExtractMode)
             {
                 case MkvExtractModes.tracks:
-                    if (!(argSeg is gMKVTrack))
+                    if (!(argSeg is gMKVTrack segTrack))
                     {
                         throw new Exception("Called GetOutputFilename without track!");
                     }
 
                     // check the track's type in order to get the output file's extension and the delay for audio tracks
-                    switch (((gMKVTrack)argSeg).TrackType)
+                    switch (segTrack.TrackType)
                     {
                         case MkvTrackType.video:
                             // get the extension of the output via the CODEC_ID of the track
-                            outputFileExtension = GetVideoFileExtensionFromCodecID((gMKVTrack)argSeg);
+                            outputFileExtension = GetVideoFileExtensionFromCodecID(segTrack);
                             replacedFilePattern = ReplaceFilenamePlaceholders(argSeg, argMKVFile, argFilenamePatterns.VideoTrackFilenamePattern);
                             break;
                         case MkvTrackType.audio:
                             // get the extension of the output via the CODEC_ID of the track
-                            outputFileExtension = GetAudioFileExtensionFromCodecID((gMKVTrack)argSeg);
+                            outputFileExtension = GetAudioFileExtensionFromCodecID(segTrack);
                             replacedFilePattern = ReplaceFilenamePlaceholders(argSeg, argMKVFile, argFilenamePatterns.AudioTrackFilenamePattern);
                             break;
                         case MkvTrackType.subtitles:
                             // get the extension of the output via the CODEC_ID of the track
-                            outputFileExtension = GetSubtitleFileExtensionFromCodecID((gMKVTrack)argSeg);
+                            outputFileExtension = GetSubtitleFileExtensionFromCodecID(segTrack);
                             replacedFilePattern = ReplaceFilenamePlaceholders(argSeg, argMKVFile, argFilenamePatterns.SubtitleTrackFilenamePattern);
                             break;
                         default:
                             break;
                     }
                     outputFilename = Path.Combine(
-                        argOutputDirectory,                        
+                        argOutputDirectory,
                         string.Format("{0}.{1}",
                             replacedFilePattern
-                            ,outputFileExtension)
+                            , outputFileExtension)
                     );
                     break;
                 case MkvExtractModes.tags:
@@ -1384,7 +1384,7 @@ namespace gMKVToolNix
                     break;
                 case MkvExtractModes.timecodes_v2:
                 case MkvExtractModes.timestamps_v2:
-                    if (!(argSeg is gMKVTrack))
+                    if (!(argSeg is gMKVTrack timeTrack))
                     {
                         throw new Exception("Called GetOutputFilename without track/timestamps!");
                     }
@@ -1392,11 +1392,11 @@ namespace gMKVToolNix
                         argOutputDirectory,
                         string.Format("{0}_track{1}_[{2}].tc.txt",
                             argMkvFilenameNoExt,
-                            ((gMKVTrack)argSeg).TrackNumber,
-                            ((gMKVTrack)argSeg).Language));
+                            timeTrack.TrackNumber,
+                            timeTrack.Language));
                     break;
                 case MkvExtractModes.cues:
-                    if (!(argSeg is gMKVTrack))
+                    if (!(argSeg is gMKVTrack cueTrack))
                     {
                         throw new Exception("Called GetOutputFilename without track/cues!");
                     }
@@ -1404,8 +1404,8 @@ namespace gMKVToolNix
                         argOutputDirectory,
                         string.Format("{0}_track{1}_[{2}].cue",
                             argMkvFilenameNoExt,
-                            ((gMKVTrack)argSeg).TrackNumber,
-                            ((gMKVTrack)argSeg).Language));
+                            cueTrack.TrackNumber,
+                            cueTrack.Language));
                     break;
                 default:
                     break;
@@ -1434,7 +1434,7 @@ namespace gMKVToolNix
                 }
 
                 outputFilename = Path.Combine(
-                    outputFilenameDirectory, 
+                    outputFilenameDirectory,
                     string.Format("{0}.{1}{2}", outputFilenameWithoutExtension, (outputFilenameCounter + 1), outputFilenameExtension)
                 );
             }
@@ -1442,7 +1442,7 @@ namespace gMKVToolNix
             return outputFilename;
         }
 
-        private string GetVideoFileExtensionFromCodecID(gMKVTrack argTrack)
+        private static string GetVideoFileExtensionFromCodecID(gMKVTrack argTrack)
         {
             string outputFileExtension;
             string codecIdUpperCase = argTrack.CodecID.ToUpper();
@@ -1505,7 +1505,7 @@ namespace gMKVToolNix
             return outputFileExtension;
         }
 
-        private string GetAudioFileExtensionFromCodecID(gMKVTrack argTrack)
+        private static string GetAudioFileExtensionFromCodecID(gMKVTrack argTrack)
         {
             string outputFileExtension;
             string codecIdUpperCase = argTrack.CodecID.ToUpper();
@@ -1535,7 +1535,7 @@ namespace gMKVToolNix
             }
             else if (codecIdUpperCase.Contains("A_EAC3"))
             {
-                outputFileExtension = "eac3"; 
+                outputFileExtension = "eac3";
             }
             else if (codecIdUpperCase.Contains("A_ALAC"))
             {
@@ -1596,7 +1596,7 @@ namespace gMKVToolNix
             return outputFileExtension;
         }
 
-        private string GetSubtitleFileExtensionFromCodecID(gMKVTrack argTrack)
+        private static string GetSubtitleFileExtensionFromCodecID(gMKVTrack argTrack)
         {
             string outputFileExtension;
             string codecIdUpperCase = argTrack.CodecID.ToUpper();
@@ -1643,7 +1643,7 @@ namespace gMKVToolNix
             else if (codecIdUpperCase.Contains("S_HDMV/TEXTST"))
             {
                 outputFileExtension = "textst";
-            }            
+            }
             else if (codecIdUpperCase.Contains("S_KATE"))
             {
                 outputFileExtension = "ogg";
@@ -1655,7 +1655,7 @@ namespace gMKVToolNix
             return outputFileExtension;
         }
 
-        private string ConvertOptionValueListToString(List<OptionValue> listOptionValue)
+        private static string ConvertOptionValueListToString(List<OptionValue> listOptionValue)
         {
             StringBuilder optionString = new StringBuilder();
             foreach (OptionValue optVal in listOptionValue)
@@ -1665,7 +1665,7 @@ namespace gMKVToolNix
             return optionString.ToString();
         }
 
-        private string ConvertEnumOptionToStringOption(MkvExtractGlobalOptions enumOption)
+        private static string ConvertEnumOptionToStringOption(MkvExtractGlobalOptions enumOption)
         {
             return $"--{enumOption.ToString().Replace("_", "-")}";
         }

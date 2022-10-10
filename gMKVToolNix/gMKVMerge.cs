@@ -12,7 +12,7 @@ namespace gMKVToolNix
 {
     public class gMKVMerge
     {
-        static readonly string[] formats = { 
+        private static readonly string[] _dateFormats = { 
             // Basic formats
             "yyyyMMddTHHmmsszzz",
             "yyyyMMddTHHmmsszz",
@@ -87,7 +87,7 @@ namespace gMKVToolNix
             {
                 throw new Exception("The MKVToolNix path was not provided!");
             }
-            if(!Directory.Exists(mkvToonlixPath))
+            if (!Directory.Exists(mkvToonlixPath))
             {
                 throw new Exception(string.Format("The MKVToolNix path {0} does not exist!", mkvToonlixPath));
             }
@@ -113,10 +113,11 @@ namespace gMKVToolNix
             ExecuteMkvMerge(null, argMKVFile, myProcess_OutputDataReceived);
             // Start the parsing of the output
             // Since MKVToolNix v9.6.0, start parsing the JSON identification info
-            if(_Version == null)
+            if (_Version == null)
             {
                 _Version = GetMKVMergeVersion();
             }
+
             if (_Version.FileMajorPart > 9 ||
                 (_Version.FileMajorPart == 9 && _Version.FileMinorPart >= 6))
             {
@@ -126,6 +127,7 @@ namespace gMKVToolNix
             {
                 ParseMkvMergeOutput();
             }
+
             // Add the file properties in gMKVSegmentInfo
             if (_SegmentList.Any(s => s is gMKVSegmentInfo))
             {
@@ -133,6 +135,7 @@ namespace gMKVToolNix
                 ((gMKVSegmentInfo)seg).Directory = Path.GetDirectoryName(argMKVFile);
                 ((gMKVSegmentInfo)seg).Filename = Path.GetFileName(argMKVFile);
             }
+
             return _SegmentList;
         }
 
@@ -145,10 +148,10 @@ namespace gMKVToolNix
             }
 
             // Check if there are any video tracks
-            if (!argSegmentList.Any(x => x is gMKVTrack && (x as gMKVTrack).TrackType == MkvTrackType.video))
+            if (!argSegmentList.Any(x => x is gMKVTrack xTrack && xTrack.TrackType == MkvTrackType.video))
             {
                 // No video track found, so set all the delays to 0
-                foreach (gMKVTrack tr in argSegmentList.Where(x => x is gMKVTrack && (x as gMKVTrack).TrackType == MkvTrackType.audio))
+                foreach (gMKVTrack tr in argSegmentList.Where(x => x is gMKVTrack xTrack && xTrack.TrackType == MkvTrackType.audio))
                 {
                     tr.Delay = 0;
                     tr.EffectiveDelay = 0;
@@ -157,16 +160,15 @@ namespace gMKVToolNix
                 // Everything is fine, return true
                 return true;
             }
-            
+
             Int32 videoDelay = Int32.MinValue;
 
             // First, find the video delay
             foreach (gMKVSegment seg in argSegmentList)
             {
-                if (seg is gMKVTrack)
+                if (seg is gMKVTrack track)
                 {
-                    gMKVTrack track = (gMKVTrack)seg;
-                    if(track.TrackType == MkvTrackType.video)
+                    if (track.TrackType == MkvTrackType.video)
                     {
                         // Check if MinimumTimestamp property was found
                         if (track.MinimumTimestamp == Int64.MinValue)
@@ -190,12 +192,11 @@ namespace gMKVToolNix
                 return false;
             }
 
-            // If video delay was found, then determine the audio track delay
+            // If video delay was found, then determine all the audio tracks delays
             foreach (gMKVSegment seg in argSegmentList)
             {
-                if (seg is gMKVTrack)
+                if (seg is gMKVTrack track)
                 {
-                    gMKVTrack track = (gMKVTrack)seg;
                     if (track.TrackType == MkvTrackType.audio)
                     {
                         // Check if MinimumTimestamp property was found
@@ -215,30 +216,29 @@ namespace gMKVToolNix
             return true;
         }
 
-        private byte[] HexStringToByteArray(string hexString)
+        private static byte[] HexStringToByteArray(string hexString)
         {
             if (hexString.Length % 2 == 1)
             {
                 throw new ArgumentException($"The binary key cannot have an odd number of digits: {hexString}");
             }
 
-            byte[] HexAsBytes = new byte[hexString.Length / 2];
-            for (int index = 0; index < HexAsBytes.Length; index++)
+            byte[] hexAsBytes = new byte[hexString.Length / 2];
+            for (int index = 0; index < hexAsBytes.Length; index++)
             {
                 string byteValue = hexString.Substring(index * 2, 2);
-                HexAsBytes[index] = byte.Parse(byteValue, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
+                hexAsBytes[index] = byte.Parse(byteValue, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
             }
 
-            return HexAsBytes;
+            return hexAsBytes;
         }
 
         public void FindCodecPrivate(List<gMKVSegment> argSegmentList)
         {
             foreach (gMKVSegment seg in argSegmentList)
             {
-                if (seg is gMKVTrack)
+                if (seg is gMKVTrack track)
                 {
-                    gMKVTrack track = (gMKVTrack)seg;
                     // Check if the track has CodecPrivateData
                     // and it doesn't have a text representation of CodecPrivate
                     if (!string.IsNullOrWhiteSpace(track.CodecPrivateData)
@@ -251,7 +251,7 @@ namespace gMKVToolNix
                             {
                                 track.CodecPrivate = string.Format("length {0} (FourCC: \"{1}\")"
                                     , codecPrivateBytes.Length
-                                    , 
+                                    ,
                                     ((32 <= codecPrivateBytes[16]) && (127 > codecPrivateBytes[16]) ? Encoding.ASCII.GetString(new byte[] { codecPrivateBytes[16] }) : "?") +
                                     ((32 <= codecPrivateBytes[17]) && (127 > codecPrivateBytes[17]) ? Encoding.ASCII.GetString(new byte[] { codecPrivateBytes[17] }) : "?") +
                                     ((32 <= codecPrivateBytes[18]) && (127 > codecPrivateBytes[18]) ? Encoding.ASCII.GetString(new byte[] { codecPrivateBytes[18] }) : "?") +
@@ -394,7 +394,7 @@ namespace gMKVToolNix
             }
 
             // check for existence of mkvmerge
-            if (!File.Exists(_MKVMergeFilename)) 
+            if (!File.Exists(_MKVMergeFilename))
             {
                 throw new Exception($"Could not find {MKV_MERGE_FILENAME}!{Environment.NewLine}{_MKVMergeFilename}");
             }
@@ -591,7 +591,7 @@ namespace gMKVToolNix
 
                 // Start the mkvinfo process
                 myProcess.Start();
-                
+
                 // Read the Standard output character by character
                 gMKVHelper.ReadStreamPerCharacter(myProcess, argHandler);
 
@@ -608,7 +608,7 @@ namespace gMKVToolNix
                 if (myProcess.ExitCode > 1)
                 {
                     // something went wrong!
-                    throw new Exception(string.Format("Mkvmerge exited with error code {0}!" + 
+                    throw new Exception(string.Format("Mkvmerge exited with error code {0}!" +
                         Environment.NewLine + Environment.NewLine + "Errors reported:" + Environment.NewLine + "{1}",
                         myProcess.ExitCode, _ErrorBuilder.ToString()));
                 }
@@ -773,7 +773,7 @@ namespace gMKVToolNix
                                         if (childFinalPropertyName == "date_utc")
                                         {
                                             string dateValue = childFinalProperty.ToString().Replace("\"date_utc\":", "").Replace("\"", "").Trim();
-                                            tmpSegInfo.Date = DateTime.ParseExact(dateValue, formats, CultureInfo.InvariantCulture,
+                                            tmpSegInfo.Date = DateTime.ParseExact(dateValue, _dateFormats, CultureInfo.InvariantCulture,
                                                 DateTimeStyles.AssumeUniversal).ToUniversalTime().
                                                 ToString("ddd MMM dd HH:mm:ss yyyy UTC", CultureInfo.InvariantCulture);
                                         }
@@ -865,7 +865,7 @@ namespace gMKVToolNix
                                                 continue;
                                             }
                                             JProperty propertyFinal = propertyFinalChild as JProperty;
-                                            if(propertyFinal == null || string.IsNullOrWhiteSpace(propertyFinal.Name))
+                                            if (propertyFinal == null || string.IsNullOrWhiteSpace(propertyFinal.Name))
                                             {
                                                 continue;
                                             }
@@ -928,7 +928,7 @@ namespace gMKVToolNix
                                                 string w = videoDimensions.Substring(0, videoDimensions.IndexOf("x"));
                                                 string h = videoDimensions.Substring(videoDimensions.IndexOf("x") + 1);
 
-                                                if(int.TryParse(w, out int tmpW) && int.TryParse(h, out int tmpH))
+                                                if (int.TryParse(w, out int tmpW) && int.TryParse(h, out int tmpH))
                                                 {
                                                     tmpTrack.VideoPixelWidth = tmpW;
                                                     tmpTrack.VideoPixelHeight = tmpH;
@@ -1000,7 +1000,7 @@ namespace gMKVToolNix
                     }
                     if (outputLine.Contains("date_utc:"))
                     {
-                        tmpSegInfo.Date = DateTime.ParseExact(ExtractProperty(outputLine, "date_utc"), formats, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal).
+                        tmpSegInfo.Date = DateTime.ParseExact(ExtractProperty(outputLine, "date_utc"), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal).
                             ToUniversalTime().
                             ToString("ddd MMM dd HH:mm:ss yyyy UTC", CultureInfo.InvariantCulture);
                     }
@@ -1083,7 +1083,7 @@ namespace gMKVToolNix
                     }
                     if (outputLine.Contains("track_name:"))
                     {
-                        tmpTrack.TrackName = ExtractProperty(outputLine, "track_name"); 
+                        tmpTrack.TrackName = ExtractProperty(outputLine, "track_name");
                     }
                     if (outputLine.Contains("codec_private_data:"))
                     {
@@ -1176,7 +1176,7 @@ namespace gMKVToolNix
                 {
                     gMKVChapter tmp = new gMKVChapter
                     {
-                        ChapterCount = int.TryParse(outputLine.Replace("Chapters: ", "").Replace("entry", "").Replace("entries", "").Trim(), out int chapterCount) 
+                        ChapterCount = int.TryParse(outputLine.Replace("Chapters: ", "").Replace("entry", "").Replace("entries", "").Trim(), out int chapterCount)
                         ? chapterCount : 0
                     };
 
@@ -1185,7 +1185,7 @@ namespace gMKVToolNix
             }
         }
 
-        private string ExtractProperty(string line, string propertyName)
+        private static string ExtractProperty(string line, string propertyName)
         {
             if (!line.Contains(propertyName + ":"))
             {
@@ -1273,7 +1273,7 @@ namespace gMKVToolNix
             }
         }
 
-        private string ConvertOptionValueListToString(List<OptionValue> listOptionValue)
+        private static string ConvertOptionValueListToString(List<OptionValue> listOptionValue)
         {
             StringBuilder optionString = new StringBuilder();
             foreach (OptionValue optVal in listOptionValue)
@@ -1283,7 +1283,7 @@ namespace gMKVToolNix
             return optionString.ToString();
         }
 
-        private string ConvertEnumOptionToStringOption(MkvMergeOptions enumOption)
+        private static string ConvertEnumOptionToStringOption(MkvMergeOptions enumOption)
         {
             return $"--{enumOption}".Replace("_", "-");
         }
